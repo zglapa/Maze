@@ -22,7 +22,7 @@ public class Wall implements GameObject{
         this.right = right;
         this.bottom = bottom;
         this.paint = new Paint();
-        this.paint.setColor(ContextCompat.getColor(context, R.color.lime));
+        this.paint.setColor(ContextCompat.getColor(context, R.color.hedge_green));
         this.rectangle = new Rect(left, top, right, bottom);;
     }
 

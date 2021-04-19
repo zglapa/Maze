@@ -18,14 +18,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.Maze" >
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen" >
+        <activity
+            android:name="com.example.maze.HallOfFameActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.example.maze.LevelChoiceActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name="com.example.maze.SettingsActivity"
-            android:parentActivityName="com.example.maze.MainActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name="com.example.maze.GameActivity"
-            android:parentActivityName="com.example.maze.MainActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name="com.example.maze.MainActivity"

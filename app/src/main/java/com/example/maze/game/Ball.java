@@ -19,7 +19,7 @@ public class Ball implements GameObject{
     public Ball(Context context, double radius){
         this.radius = radius;
         paint = new Paint();
-        paint.setColor(ContextCompat.getColor(context, R.color.cyan));
+        paint.setColor(ContextCompat.getColor(context, R.color.red));
     }
 
     @Override

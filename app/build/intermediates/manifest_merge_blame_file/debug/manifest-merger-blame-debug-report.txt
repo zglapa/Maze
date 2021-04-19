@@ -11,7 +11,7 @@
 9-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:5:5-28:19
+11-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:5:5-33:19
 12        android:allowBackup="true"
 12-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -27,41 +27,49 @@
 19        android:supportsRtl="true"
 19-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:10:9-35
 20        android:testOnly="true"
-21        android:theme="@style/Theme.Maze" >
-21-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:11:9-42
+21        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar.FullScreen" >
+21-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:11:9-79
 22        <activity
-22-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:12:9-15:54
-23            android:name="com.example.maze.SettingsActivity"
-23-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:13:13-45
-24            android:parentActivityName="com.example.maze.MainActivity"
-24-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:14:13-55
-25            android:screenOrientation="landscape" />
-25-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:15:13-50
-26        <activity
-26-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:16:9-19:54
-27            android:name="com.example.maze.GameActivity"
-27-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:17:13-41
-28            android:parentActivityName="com.example.maze.MainActivity"
-28-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:18:13-55
-29            android:screenOrientation="landscape" />
-29-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:19:13-50
-30        <activity
-30-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:20:9-27:20
-31            android:name="com.example.maze.MainActivity"
-31-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:20:19-47
-32            android:screenOrientation="landscape" >
-32-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:21:13-50
-33            <intent-filter>
-33-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:22:13-26:29
-34                <action android:name="android.intent.action.MAIN" />
-34-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:23:17-69
-34-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:23:25-66
-35
-36                <category android:name="android.intent.category.LAUNCHER" />
-36-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:25:17-77
-36-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:25:27-74
-37            </intent-filter>
-38        </activity>
-39    </application>
-40
-41</manifest>
+22-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:12:9-14:53
+23            android:name="com.example.maze.HallOfFameActivity"
+23-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:13:13-47
+24            android:screenOrientation="landscape" />
+24-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:14:13-50
+25        <activity
+25-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:15:9-17:53
+26            android:name="com.example.maze.LevelChoiceActivity"
+26-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:16:13-48
+27            android:screenOrientation="landscape" />
+27-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:17:13-50
+28        <activity
+28-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:18:9-20:53
+29            android:name="com.example.maze.SettingsActivity"
+29-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:19:13-45
+30            android:screenOrientation="landscape" />
+30-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:20:13-50
+31        <activity
+31-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:21:9-23:53
+32            android:name="com.example.maze.GameActivity"
+32-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:22:13-41
+33            android:screenOrientation="landscape" />
+33-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:23:13-50
+34        <activity
+34-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:24:9-32:20
+35            android:name="com.example.maze.MainActivity"
+35-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:25:13-41
+36            android:screenOrientation="landscape" >
+36-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:26:13-50
+37            <intent-filter>
+37-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:27:13-31:29
+38                <action android:name="android.intent.action.MAIN" />
+38-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:28:17-69
+38-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:28:25-66
+39
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:30:17-77
+40-->/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:30:27-74
+41            </intent-filter>
+42        </activity>
+43    </application>
+44
+45</manifest>

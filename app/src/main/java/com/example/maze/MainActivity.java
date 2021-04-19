@@ -2,14 +2,10 @@ package com.example.maze;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-
-import java.util.Date;
+import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,11 +13,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_main);
     }
 
-    public void launchGameActivity(View view){
-        Intent intent = new Intent(this, GameActivity.class);
+    public void launchLevelChoiceActivity(View view){
+        Intent intent = new Intent(this, LevelChoiceActivity.class);
         startActivity(intent);
     }
 
@@ -29,5 +27,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
+
+    public void launchHallOfFameActivity(View view){
+        Intent intent = new Intent(this, HallOfFameActivity.class);
+        startActivity(intent);
+    }
+
 
 }

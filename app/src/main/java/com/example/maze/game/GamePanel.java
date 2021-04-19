@@ -1,24 +1,40 @@
 package com.example.maze.game;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BlendMode;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Picture;
+import android.graphics.PixelFormat;
 import android.graphics.Point;
+import android.graphics.Shader;
+import android.os.Build;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+
+import com.example.maze.R;
 
 
+@SuppressLint("ViewConstructor")
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     private GameThread thread;
     private final Ball ball;
-    private Point ballPoint;
+    private final Point ballPoint;
     private final LevelField levelField;
-    private Orientation orientation;
+    private final Orientation orientation;
     private long frameTime;
+    private Bitmap bitmap;
 
-    public GamePanel(Context context){
+    public GamePanel(Context context, int level){
         super(context);
 
         getHolder().addCallback(this);
@@ -28,7 +44,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         ball = new Ball(getContext(), 30);
         ballPoint = new Point(150, 150);
 
-        levelField = new LevelField(context);
+        levelField = new LevelField(context, level);
+
 
         orientation = new Orientation(getContext());
         orientation.register();
@@ -75,8 +92,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 //            System.out.println("x " + xSpeed + " | y" + ySpeed);
 
 
-            x = (int) (ballPoint.x - (Math.abs(xSpeed*elapsedTime) > 3 ? xSpeed*elapsedTime : 0));
-            y = (int) (ballPoint.y - (Math.abs(ySpeed*elapsedTime) > 3 ? ySpeed*elapsedTime : 0));
+            x = (int) (ballPoint.x - xSpeed*elapsedTime);
+            y = (int) (ballPoint.y - ySpeed*elapsedTime);
         }
 
         if(x < 0) x = 0;
@@ -121,6 +138,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void draw(Canvas canvas){
         super.draw(canvas);
+        canvas.drawColor(getResources().getColor(R.color.grass_green, null));
+
         levelField.draw(canvas);
         ball.draw(canvas);
     }

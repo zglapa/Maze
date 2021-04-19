@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="cyan">#00BCD4</color>
     <color name="lime">#AAFF00</color>
+    <color name="grass_green">#95C293</color>
+    <color name="grass_dark_green">#4F7E4D</color>
+    <color name="hedge_green">#134D22</color>
+    <color name="red">#C94060</color>
 </resources>
