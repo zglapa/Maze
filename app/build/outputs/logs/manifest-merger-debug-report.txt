@@ -71,9 +71,9 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/zofia
 	android:label
 		ADDED from /home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:8:9-41
 	android:roundIcon
-		ADDED from /home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:9:9-54
+		ADDED from /home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:9:9-49
 	android:icon
-		ADDED from /home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:7:9-43
+		ADDED from /home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:7:9-38
 	android:allowBackup
 		ADDED from /home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/AndroidManifest.xml:6:9-35
 	android:theme

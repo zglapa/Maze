@@ -1650,6 +1650,7 @@ drawable design_snackbar_background
 drawable grass
 drawable grass_main
 drawable grass_plain
+drawable hedge_back
 drawable hedge_long
 drawable hedge_square
 drawable ic_clock_black_24dp
@@ -1660,6 +1661,8 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable icon
+drawable icon_round
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp

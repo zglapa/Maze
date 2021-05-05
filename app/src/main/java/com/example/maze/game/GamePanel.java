@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
 import android.graphics.BlendMode;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -12,6 +14,7 @@ import android.graphics.Paint;
 import android.graphics.Picture;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
+import android.graphics.Rect;
 import android.graphics.Shader;
 import android.os.Build;
 import android.view.SurfaceHolder;
@@ -33,6 +36,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private final Orientation orientation;
     private long frameTime;
     private Bitmap bitmap;
+    private Paint paint;
+    Rect dest;
 
     public GamePanel(Context context, int level){
         super(context);
@@ -44,12 +49,22 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         ball = new Ball(getContext(), 30);
         ballPoint = new Point(150, 150);
 
-        levelField = new LevelField(context, level);
+        levelField = new LevelField(getResources(), context, level);
 
 
         orientation = new Orientation(getContext());
         orientation.register();
         frameTime = System.currentTimeMillis();
+
+        bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.grass_plain);
+        paint = new Paint();
+        paint.setFilterBitmap(true);
+//        BitmapShader fillBMPshader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+//        paint = new Paint();
+//        paint.setShader(fillBMPshader);
+//        paint.s
+        dest = new Rect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+
         setFocusable(true);
     }
 
@@ -138,7 +153,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void draw(Canvas canvas){
         super.draw(canvas);
-        canvas.drawColor(getResources().getColor(R.color.grass_green, null));
+
+        canvas.drawBitmap(bitmap, null, dest, paint);
 
         levelField.draw(canvas);
         ball.draw(canvas);
