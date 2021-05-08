@@ -72,7 +72,16 @@ public class GameThread extends Thread {
                 totalTime = 0;
                 System.out.println(averageFPS);
             }
+            if(gamePanel.gameEnded()){
+                break;
+            }
         }
+        try {
+            sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 //        gamePanel.EndLevel();
     }
 

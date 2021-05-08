@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.view.View;
 
 import com.example.maze.R;
 import com.example.maze.game.objects.Ball;
@@ -22,18 +23,20 @@ public class GameplayScene implements Scene {
 
     private boolean gameEnd;
 
+    private View endGameNotif;
+
     private Context context;
 //    Rect dest;
 
-    public GameplayScene(SceneManager sceneManager, Context context, int level){
+    public GameplayScene(SceneManager sceneManager, Context context, int level, View endGameNotif){
         this.sceneManager = sceneManager;
+        this.endGameNotif = endGameNotif;
+        this.context = context;
 
         ball = new Ball(context, Constants.BALL_RADIUS);
         ballPoint = new Point(150, 150);
 
         levelField = new LevelField(context.getResources(), context, level);
-
-        this.context = context;
 
         orientation = new Orientation(context);
         orientation.register();
@@ -120,7 +123,11 @@ public class GameplayScene implements Scene {
 
         if(levelField.getEndPoint().intersects(ball)){
             gameEnd = true;
+//            endGameNotif.setVisibility(View.VISIBLE);
         }
 
+    }
+    public boolean isGameEnd(){
+        return gameEnd;
     }
 }

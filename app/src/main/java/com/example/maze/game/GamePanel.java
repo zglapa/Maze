@@ -2,29 +2,12 @@ package com.example.maze.game;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapShader;
-import android.graphics.BlendMode;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Paint;
-import android.graphics.Picture;
-import android.graphics.PixelFormat;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.graphics.Shader;
-import android.os.Build;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.widget.TextView;
+import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-
-import com.example.maze.R;
 
 
 @SuppressLint("ViewConstructor")
@@ -34,14 +17,15 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     private GameThread thread;
 
-    public GamePanel(Context context, int level){
+
+    public GamePanel(Context context, int level, View endGameNotif){
         super(context);
 
         getHolder().addCallback(this);
 
         thread = new GameThread(getHolder(), this);
 
-        this.sceneManager = new SceneManager(context, level);
+        this.sceneManager = new SceneManager(context, level, endGameNotif);
 
         setFocusable(true);
     }
@@ -82,5 +66,11 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceChanged(@NonNull SurfaceHolder holder, int format, int width, int height) {}
-
+    public boolean isInEditMode (){
+        return true;
+    }
+    public boolean gameEnded(){
+        GameplayScene gameplayScene = (GameplayScene) sceneManager.getScenes().get(0);
+        return gameplayScene.isGameEnd();
+    }
 }

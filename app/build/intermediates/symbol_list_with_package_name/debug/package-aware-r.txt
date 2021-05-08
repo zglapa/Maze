@@ -1710,7 +1710,6 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
-id LevelEnd
 id META
 id NO_DEBUG
 id SHIFT
@@ -1874,7 +1873,8 @@ id fixed
 id flip
 id floating
 id forever
-id gamePanel
+id gameEndNotification
+id gameLayout
 id ghost_view
 id ghost_view_holder
 id gone
