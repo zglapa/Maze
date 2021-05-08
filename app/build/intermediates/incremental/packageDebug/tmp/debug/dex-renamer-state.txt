@@ -1,7 +1,7 @@
-#Wed May 05 20:59:08 CEST 2021
-base.0=/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-path.1=classes.dex
-renamed.1=classes2.dex
-path.0=classes.dex
-renamed.0=classes.dex
+#Sat May 08 12:34:19 CEST 2021
 base.1=/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
+path.1=classes.dex
+base.0=/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex

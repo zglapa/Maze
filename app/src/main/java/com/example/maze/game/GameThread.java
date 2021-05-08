@@ -3,6 +3,8 @@ package com.example.maze.game;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
+import androidx.core.content.ContextCompat;
+
 public class GameThread extends Thread {
 
     public static final int MAX_FPS = 30;
@@ -37,6 +39,7 @@ public class GameThread extends Thread {
                     this.gamePanel.update();
                     this.gamePanel.draw(canvas);
                 }
+
             }catch(Exception e){
                 e.printStackTrace();
             }finally {
@@ -69,8 +72,8 @@ public class GameThread extends Thread {
                 totalTime = 0;
                 System.out.println(averageFPS);
             }
-
         }
+//        gamePanel.EndLevel();
     }
 
 

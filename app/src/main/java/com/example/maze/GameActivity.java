@@ -24,10 +24,11 @@ public class GameActivity extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         Constants.SCREEN_HEIGHT = displayMetrics.heightPixels;
         Constants.SCREEN_WIDTH = displayMetrics.widthPixels;
-        Constants.WALL_SIZE = Constants.SCREEN_HEIGHT/15;
+        Constants.WALL_SIZE = Constants.SCREEN_HEIGHT/18;
+        Constants.ENDPT_RADIUS = 40;
+        Constants.BALL_RADIUS = 30;
 
         int level = getIntent().getIntExtra("LEVEL", 0);
-
         setContentView(new GamePanel(this, level));
     }
 }

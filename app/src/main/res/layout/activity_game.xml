@@ -8,15 +8,44 @@
 
 
     tools:context=".GameActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <com.example.maze.game.GamePanel
-        android:id="@+id/gamePanel"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/grass_plain"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.example.maze.game.GamePanel
+            android:id="@+id/gamePanel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/grass_plain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/LevelEnd"
+                android:layout_width="310dp"
+                android:layout_height="127dp"
+                android:enabled="false"
+                android:fontFamily="@font/bungee_inline"
+                android:text="Level End"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="48sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
