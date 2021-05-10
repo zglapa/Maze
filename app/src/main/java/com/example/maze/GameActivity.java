@@ -18,7 +18,7 @@ import com.example.maze.game.Constants;
 import com.example.maze.game.GamePanel;
 
 public class GameActivity extends Activity {
-
+    private GamePanel gamePanel;
     private int level;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,8 @@ public class GameActivity extends Activity {
         Constants.SCREEN_HEIGHT = displayMetrics.heightPixels;
         Constants.SCREEN_WIDTH = displayMetrics.widthPixels;
         Constants.WALL_SIZE = Constants.SCREEN_HEIGHT/18;
-        Constants.ENDPT_RADIUS = 40;
-        Constants.BALL_RADIUS = 30;
+        Constants.ENDPT_RADIUS = 60;
+        Constants.BALL_RADIUS = 45;
 
         level = getIntent().getIntExtra("LEVEL", 0);
         setContentView(R.layout.activity_game);
@@ -40,9 +40,14 @@ public class GameActivity extends Activity {
         ViewGroup parent = findViewById(R.id.gameLayout);
         if(parent != null){
             View view = layoutInflater.inflate(R.layout.activity_game, parent);
-            GamePanel gamePanel = new GamePanel(this, level);
+            gamePanel = new GamePanel(this, level);
             parent.addView(gamePanel);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     public void backButtonClicked(View view){

@@ -77,18 +77,10 @@ public class GameThread extends Thread {
             }
             if(gamePanel.gameEnded()){
                 synchronized (surfaceHolder){
-                    ((Activity)gamePanel.getContext()).runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            long time = gamePanel.getStartTime() - System.currentTimeMillis();
-
-                            gamePanel.setVisibility(View.INVISIBLE);
-
-                        }
+                    ((Activity)gamePanel.getContext()).runOnUiThread(()->{
+                        gamePanel.setVisibility(View.GONE);
                     });
                 }
-//                gamePanel.setVisibility(View.INVISIBLE);
-                break;
             }
         }
 

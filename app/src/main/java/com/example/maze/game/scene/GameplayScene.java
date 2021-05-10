@@ -48,8 +48,8 @@ public class GameplayScene implements Scene {
         paint = new Paint();
         paint.setColor(context.getResources().getColor(R.color.grass_green, null));
 
-        backgroundBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.grass_simple);
-        rectangle = new Rect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+//        backgroundBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.grass_simple);
+//        rectangle = new Rect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 
     }
 

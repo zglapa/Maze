@@ -21,36 +21,36 @@ public class LevelField implements GameObject, Serializable {
 
 
         outerWalls = new ArrayList<>();
-        outerWalls.add(new Wall(resources, context, 0, 0, Constants.WALL_SIZE, Constants.SCREEN_HEIGHT));
-        outerWalls.add(new Wall(resources, context, 0, 0, Constants.SCREEN_WIDTH, Constants.WALL_SIZE));
-        outerWalls.add(new Wall(resources, context, Constants.SCREEN_WIDTH - Constants.WALL_SIZE, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
-        outerWalls.add(new Wall(resources, context, 0, Constants.SCREEN_HEIGHT - Constants.WALL_SIZE, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT));
+        outerWalls.add(new Wall(context, 54, 27, 0, 0, 54, 2));
+        outerWalls.add(new Wall(context, 54, 27, 52, 2, 54, 25));
+        outerWalls.add(new Wall(context, 54, 27, 0, 25, 54, 27));
+        outerWalls.add(new Wall(context, 54, 27, 0, 2, 2, 25));
 
         innerWalls = new ArrayList<>();
-        endPoint1 = new EndPoint(context, 36, 36, 4, 31);
+        endPoint1 = new EndPoint(context, 54, 27, 10, 10);
         if(level == 2) {
-            endPoint1 = new EndPoint(context, 36, 36, 4, 31);
-            innerWalls.add(new Wall(resources, context, 0, 2 * Constants.SCREEN_HEIGHT / 9 - Constants.WALL_SIZE, 8 * Constants.SCREEN_WIDTH / 18, 2 * Constants.SCREEN_HEIGHT / 9));
-            innerWalls.add(new Wall(resources, context, (int) (10.5 * Constants.SCREEN_WIDTH / 18), 2 * Constants.SCREEN_HEIGHT / 9 - Constants.WALL_SIZE, Constants.SCREEN_WIDTH, 2 * Constants.SCREEN_HEIGHT / 9));
-            innerWalls.add(new Wall(resources, context, (int) (8.5 * Constants.SCREEN_WIDTH / 18) - Constants.WALL_SIZE, 2 * Constants.SCREEN_HEIGHT / 9 - Constants.WALL_SIZE, (int) (8.5 * Constants.SCREEN_WIDTH / 18), (int) (4.5 * Constants.SCREEN_HEIGHT / 9)));
-            innerWalls.add(new Wall(resources, context, (int) (8.5 * Constants.SCREEN_WIDTH / 18), 3 * Constants.SCREEN_HEIGHT / 9, 15 * Constants.SCREEN_WIDTH / 18, 3 * Constants.SCREEN_HEIGHT / 9 + Constants.WALL_SIZE));
-            innerWalls.add(new Wall(resources, context, (int) (2.5 * Constants.SCREEN_WIDTH / 18), (int) (4.5 * Constants.SCREEN_HEIGHT / 9 - Constants.WALL_SIZE), (int) (8.5 * Constants.SCREEN_WIDTH / 18), (int) (4.5 * Constants.SCREEN_HEIGHT / 9)));
-            innerWalls.add(new Wall(resources, context, (int) (11 * Constants.SCREEN_WIDTH / 18), (int) (5.5 * Constants.SCREEN_HEIGHT / 9 - Constants.WALL_SIZE), Constants.SCREEN_WIDTH, (int) (5.5 * Constants.SCREEN_HEIGHT / 9)));
-            innerWalls.add(new Wall(resources, context, 0, (int) (6.5 * Constants.SCREEN_HEIGHT / 9), 12 * Constants.SCREEN_WIDTH / 18, (int) (6.5 * Constants.SCREEN_HEIGHT / 9 + Constants.WALL_SIZE)));
+            endPoint1 = new EndPoint(context, 54, 27, 19, 10);
+            innerWalls.add(new Wall(context, 54, 27, 2, 6, 29, 8));
+            innerWalls.add(new Wall(context, 54, 27, 2, 12, 9, 14));
+            innerWalls.add(new Wall(context, 54, 27, 6, 19, 15, 21));
+            innerWalls.add(new Wall(context, 54, 27, 13, 16, 15, 19));
+            innerWalls.add(new Wall(context, 54, 27, 15, 16, 25, 18));
+            innerWalls.add(new Wall(context, 54, 27, 23, 8, 25, 16));
+            innerWalls.add(new Wall(context, 54, 27, 23, 22, 25, 25));
+            innerWalls.add(new Wall(context, 54, 27, 33, 6, 47, 8));
+            innerWalls.add(new Wall(context, 54, 27, 29, 12, 52, 14));
+            innerWalls.add(new Wall(context, 54, 27, 29, 19, 40, 21));
+            innerWalls.add(new Wall(context, 54, 27, 38, 14, 40, 19));
         }
         if(level == 3){
-            endPoint1 = new EndPoint(context, 36, 36, 21, 31);
-            innerWalls.add(new Wall(context, 36, 18, 4, 1, 5, 10));
-            innerWalls.add(new Wall(context, 36, 18, 4, 13, 28, 14));
-            innerWalls.add(new Wall(context, 36, 18, 9, 4, 10, 13));
-            innerWalls.add(new Wall(context, 36, 18, 13, 5, 28, 6));
-            innerWalls.add(new Wall(context, 36, 18, 13, 9, 14, 13));
-            innerWalls.add(new Wall(context, 36, 18, 17, 6, 18, 10));
-            innerWalls.add(new Wall(context, 36, 18, 17, 14, 18, 17));
-            innerWalls.add(new Wall(context, 36, 18, 21, 9, 22, 13));
-            innerWalls.add(new Wall(context, 36, 18, 25, 6, 26, 10));
-            innerWalls.add(new Wall(context, 36, 18, 27, 1, 28, 5));
-            innerWalls.add(new Wall(context, 36, 18, 31, 4, 32, 14));
+            endPoint1 = new EndPoint(context, 54, 27, 36, 12);
+            innerWalls.add(new Wall(context, 54, 27, 8, 2, 10, 19));
+            innerWalls.add(new Wall(context, 54, 27, 16, 8, 18, 25));
+            innerWalls.add(new Wall(context, 54, 27, 24, 2, 26, 19));
+            innerWalls.add(new Wall(context, 54, 27, 32, 8, 34, 25));
+            innerWalls.add(new Wall(context, 54, 27, 34, 8, 46, 10));
+            innerWalls.add(new Wall(context, 54, 27, 44, 10, 46, 19));
+            innerWalls.add(new Wall(context, 54, 27, 40, 17, 44, 19));
         }
         endPoint = endPoint1;
 
