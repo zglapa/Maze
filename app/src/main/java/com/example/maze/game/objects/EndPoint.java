@@ -60,13 +60,6 @@ public class EndPoint implements GameObject {
     }
 
     public boolean intersects(Ball ball){
-//        double x = this.positionX - ball.getPositionX();
-//        double y = this.positionY - ball.getPositionY();
-//        if(Math.sqrt(x * x + y * y) < Constants.BALL_RADIUS + Constants.ENDPT_RADIUS){
-//            System.out.println("Intersection");
-//            return true;
-//        }
-//        return false;
         return Intersector.overlaps(ball.getCircle(), this.circle);
     }
     public double getPositionX(){

@@ -32,6 +32,7 @@ public class GameActivity extends Activity {
         Constants.WALL_SIZE = Constants.SCREEN_HEIGHT/18;
         Constants.ENDPT_RADIUS = 60;
         Constants.BALL_RADIUS = 45;
+        Constants.EATER_RADIUS = 45;
 
         level = getIntent().getIntExtra("LEVEL", 0);
         setContentView(R.layout.activity_game);

@@ -15,11 +15,11 @@ public class LevelField implements GameObject, Serializable {
     private final List<Wall> outerWalls;
     private final List<Wall> innerWalls;
     private final EndPoint endPoint;
+    private final List<Eater> eaters;
 
     public LevelField(Resources resources, Context context, int level){
         EndPoint endPoint1;
-
-
+        eaters = new ArrayList<>();
         outerWalls = new ArrayList<>();
         outerWalls.add(new Wall(context, 54, 27, 0, 0, 54, 2));
         outerWalls.add(new Wall(context, 54, 27, 52, 2, 54, 25));
@@ -44,6 +44,7 @@ public class LevelField implements GameObject, Serializable {
         }
         if(level == 3){
             endPoint1 = new EndPoint(context, 54, 27, 36, 12);
+            eaters.add(new Eater(context, 54, 27, 17, 4));
             innerWalls.add(new Wall(context, 54, 27, 8, 2, 10, 19));
             innerWalls.add(new Wall(context, 54, 27, 16, 8, 18, 25));
             innerWalls.add(new Wall(context, 54, 27, 24, 2, 26, 19));
@@ -67,6 +68,10 @@ public class LevelField implements GameObject, Serializable {
         return endPoint;
     }
 
+    public List<Eater> getEaters() {
+        return eaters;
+    }
+
     @Override
     public void draw(Canvas canvas) {
         for(Wall wall: outerWalls){
@@ -74,6 +79,9 @@ public class LevelField implements GameObject, Serializable {
         }
         for(Wall wall: innerWalls){
             wall.draw(canvas);
+        }
+        for(Eater eater: eaters){
+            eater.draw(canvas);
         }
         endPoint.draw(canvas);
     }

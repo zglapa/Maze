@@ -8,4 +8,5 @@ public class Constants {
     public static int WALL_SIZE;
     public static int ENDPT_RADIUS;
     public static int BALL_RADIUS;
+    public static int EATER_RADIUS;
 }

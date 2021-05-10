@@ -11,33 +11,38 @@ import android.graphics.Shader;
 
 import com.example.maze.R;
 import com.example.maze.game.Constants;
+import com.example.maze.game.objects.Eater;
 import com.example.maze.game.sensors.Orientation;
 import com.example.maze.game.objects.Ball;
 import com.example.maze.game.objects.LevelField;
 import com.example.maze.game.objects.Wall;
 
+import java.util.Random;
+
 public class GameplayScene implements Scene {
 
-    private SceneManager sceneManager;
+    private final SceneManager sceneManager;
     private final Ball ball;
     private final Point ballPoint;
     private final LevelField levelField;
     private final Orientation orientation;
     private long frameTime;
-    private Paint paint;
+    private final Paint paint;
     private Bitmap backgroundBitmap;
     private Rect rectangle;
+    private final Point ballStartPosition;
 
     private boolean gameEnd;
 
-    private Context context;
+    private final Context context;
 
     public GameplayScene(SceneManager sceneManager, Context context, int level){
         this.sceneManager = sceneManager;
         this.context = context;
 
-        ball = new Ball(context, Constants.BALL_RADIUS, Constants.SCREEN_WIDTH/18f, Constants.SCREEN_HEIGHT/9f);
-        ballPoint = new Point(150, 150);
+        ball = new Ball(context, 54, 27, 5, 4);
+        ballPoint = new Point((int)ball.getPositionX(), (int)ball.getPositionY());
+        ballStartPosition = new Point((int)ball.getPositionX(), (int)ball.getPositionY());
 
         levelField = new LevelField(context.getResources(), context, level);
 
@@ -91,10 +96,11 @@ public class GameplayScene implements Scene {
             float xSpeed = 5 * xx * Constants.SCREEN_WIDTH/2000f;
             float ySpeed = 5 * yy * Constants.SCREEN_HEIGHT/2000f;
 
+            Random random = new Random();
             finalXmove = (int)(xSpeed*elapsedTime);
             finalYmove = (int)(ySpeed*elapsedTime);
             x = (int) (ballPoint.x - xSpeed*elapsedTime);
-            y = (int) (ballPoint.y - ySpeed*elapsedTime + 25);
+            y = (int) (ballPoint.y - ySpeed*elapsedTime);
         }
 
         if(x < 0) x = 0;
@@ -102,7 +108,7 @@ public class GameplayScene implements Scene {
         if(y < 0) y = 0;
         if(y > Constants.SCREEN_HEIGHT) y = Constants.SCREEN_HEIGHT;
 
-        Ball prevBall = new Ball(context, ball.getRadius(), ball.getPositionX(), ball.getPositionY());
+        Ball prevBall = new Ball(context, ball.getPositionX(), ball.getPositionY());
 
         ballPoint.set(x,y);
 
@@ -125,6 +131,12 @@ public class GameplayScene implements Scene {
                 }
 
                 ballPoint.set(x,y);
+                ball.update(ballPoint);
+            }
+        }
+        for(Eater eater: levelField.getEaters()){
+            if(eater.intersects(ball)){
+                ballPoint.set(ballStartPosition.x, ballStartPosition.y);
                 ball.update(ballPoint);
             }
         }
