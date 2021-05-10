@@ -81,12 +81,7 @@ public class GameThread extends Thread {
                         @Override
                         public void run() {
                             long time = gamePanel.getStartTime() - System.currentTimeMillis();
-                            TextView timeTextView = (TextView) ((Activity)gamePanel.getContext()).findViewById(R.id.timeValueTextView);
-//                            if(timeTextView == null){
-//                                System.out.println("nyull");
-//                            }
-                            assert timeTextView != null;
-                            timeTextView.setVisibility(View.INVISIBLE);
+
                             gamePanel.setVisibility(View.INVISIBLE);
 
                         }

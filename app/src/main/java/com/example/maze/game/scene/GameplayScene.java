@@ -1,9 +1,13 @@
 package com.example.maze.game.scene;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.graphics.Rect;
+import android.graphics.Shader;
 
 import com.example.maze.R;
 import com.example.maze.game.Constants;
@@ -21,6 +25,8 @@ public class GameplayScene implements Scene {
     private final Orientation orientation;
     private long frameTime;
     private Paint paint;
+    private Bitmap backgroundBitmap;
+    private Rect rectangle;
 
     private boolean gameEnd;
 
@@ -42,6 +48,9 @@ public class GameplayScene implements Scene {
         paint = new Paint();
         paint.setColor(context.getResources().getColor(R.color.grass_green, null));
 
+        backgroundBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.grass_simple);
+        rectangle = new Rect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
+
     }
 
     @Override
@@ -56,6 +65,7 @@ public class GameplayScene implements Scene {
     @Override
     public void draw(Canvas canvas) {
         canvas.drawPaint(paint);
+//        canvas.drawBitmap(backgroundBitmap,null, rectangle, paint);
         levelField.draw(canvas);
         ball.draw(canvas);
 

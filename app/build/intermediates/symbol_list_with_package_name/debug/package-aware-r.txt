@@ -1652,9 +1652,13 @@ drawable design_snackbar_background
 drawable grass
 drawable grass_main
 drawable grass_plain
+drawable grass_simple
 drawable hedge_back
 drawable hedge_long
+drawable hedge_simple_long
+drawable hedge_simple_mid
 drawable hedge_square
+drawable hedge_vertical
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -2204,7 +2208,6 @@ layout abc_tooltip
 layout activity_game
 layout activity_hall_of_fame
 layout activity_level_choice
-layout activity_level_end
 layout activity_main
 layout activity_settings
 layout custom_dialog

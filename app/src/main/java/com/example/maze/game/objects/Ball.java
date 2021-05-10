@@ -23,7 +23,7 @@ public class Ball implements GameObject {
     private final Rect realBody;
     private final Circle circle;
     private final Rectangle rectangle;
-//    private final Bitmap bitmap;
+    private final Bitmap bitmap;
 
     public Ball(Context context, double radius, double positionX, double positionY){
         this.radius = radius;
@@ -34,13 +34,13 @@ public class Ball implements GameObject {
         this.positionY = positionY;
         this.realBody = new Rect((int)(positionX - radius), (int)(positionY - radius), (int)(positionX + radius), (int)(positionY + radius));
         this.rectangle = new Rectangle((float)(positionX-radius), (float)(positionY-radius), (float)(2*radius), (float)(2*radius));
-//        this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ball);
+        this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ball);
     }
 
     @Override
     public void draw(Canvas canvas){
-//        canvas.drawBitmap(bitmap, null, realBody, new Paint());
-        canvas.drawCircle((float)positionX, (float)positionY, (float)radius, paint);
+        canvas.drawBitmap(bitmap, null, realBody, paint);
+//        canvas.drawCircle((float)positionX, (float)positionY, (float)radius, paint);
     }
 
     @Override

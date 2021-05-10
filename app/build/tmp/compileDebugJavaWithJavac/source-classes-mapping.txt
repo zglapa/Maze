@@ -17,27 +17,27 @@ com/example/maze/MainActivity.java
  com.example.maze.MainActivity
 com/example/maze/SettingsActivity.java
  com.example.maze.SettingsActivity
-com/example/maze/game/GamePanel.java
- com.example.maze.game.GamePanel
-com/example/maze/game/objects/Ball.java
- com.example.maze.game.objects.Ball
-com/example/maze/game/scene/SceneManager.java
- com.example.maze.game.scene.SceneManager
-com/example/maze/game/objects/EndPoint.java
- com.example.maze.game.objects.EndPoint
-com/example/maze/game/Constants.java
- com.example.maze.game.Constants
 com/example/maze/HallOfFameActivity.java
  com.example.maze.HallOfFameActivity
 com/example/maze/game/objects/Eater.java
  com.example.maze.game.objects.Eater
-com/example/maze/game/objects/Wall.java
- com.example.maze.game.objects.Wall
-com/example/maze/game/scene/GameplayScene.java
- com.example.maze.game.scene.GameplayScene
-com/example/maze/game/objects/LevelField.java
- com.example.maze.game.objects.LevelField
-com/example/maze/LevelChoiceActivity.java
- com.example.maze.LevelChoiceActivity
 com/example/maze/GameActivity.java
  com.example.maze.GameActivity
+com/example/maze/LevelChoiceActivity.java
+ com.example.maze.LevelChoiceActivity
+com/example/maze/game/Constants.java
+ com.example.maze.game.Constants
+com/example/maze/game/objects/Ball.java
+ com.example.maze.game.objects.Ball
+com/example/maze/game/objects/Wall.java
+ com.example.maze.game.objects.Wall
+com/example/maze/game/scene/SceneManager.java
+ com.example.maze.game.scene.SceneManager
+com/example/maze/game/GamePanel.java
+ com.example.maze.game.GamePanel
+com/example/maze/game/objects/LevelField.java
+ com.example.maze.game.objects.LevelField
+com/example/maze/game/objects/EndPoint.java
+ com.example.maze.game.objects.EndPoint
+com/example/maze/game/scene/GameplayScene.java
+ com.example.maze.game.scene.GameplayScene

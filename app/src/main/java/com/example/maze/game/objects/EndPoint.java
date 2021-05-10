@@ -28,14 +28,14 @@ public class EndPoint implements GameObject {
 //
 //    private AnimationManager animationManager;
 
-    public EndPoint(Context context, double x, double y){
+    public EndPoint(Context context, int widthDivider, int heightDivider, int x, int y){
         this.radius = Constants.ENDPT_RADIUS;
         this.paint = new Paint();
         this.paint.setColor(context.getColor(R.color.gray));
-        this.positionX = x;
-        this.positionY = y;
-        this.realBody = new Rect((int)(x-radius), (int)(y-radius), (int)(x+radius), (int)(y+radius));
-        this.circle = new Circle((float)x, (float)y, (float)radius);
+        this.positionX =  x * (double)Constants.SCREEN_WIDTH/widthDivider;
+        this.positionY = y * (double)Constants.SCREEN_HEIGHT/heightDivider;
+        this.realBody = new Rect((int)(this.positionX-radius), (int)(this.positionY-radius), (int)(this.positionX+radius), (int)(this.positionY+radius));
+        this.circle = new Circle((float)this.positionX, (float)this.positionY, (float)radius);
 //        Bitmap idleImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.wheel1);
 //        Bitmap spin1 = BitmapFactory.decodeResource(context.getResources(), R.drawable.wheel1);
 //        Bitmap spin2 = BitmapFactory.decodeResource(context.getResources(), R.drawable.wheel2);
