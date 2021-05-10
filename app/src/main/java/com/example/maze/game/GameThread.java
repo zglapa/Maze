@@ -1,9 +1,12 @@
 package com.example.maze.game;
 
+import android.app.Activity;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
+import android.view.View;
+import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
+import com.example.maze.R;
 
 public class GameThread extends Thread {
 
@@ -23,7 +26,7 @@ public class GameThread extends Thread {
     @Override
     public void run(){
         long startTime;
-        long timeMillis = 1000/MAX_FPS;
+        long timeMillis;
         long waitTime;
         int frameCount = 0;
         long totalTime = 0;
@@ -73,16 +76,27 @@ public class GameThread extends Thread {
                 System.out.println(averageFPS);
             }
             if(gamePanel.gameEnded()){
+                synchronized (surfaceHolder){
+                    ((Activity)gamePanel.getContext()).runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            long time = gamePanel.getStartTime() - System.currentTimeMillis();
+                            TextView timeTextView = (TextView) ((Activity)gamePanel.getContext()).findViewById(R.id.timeValueTextView);
+//                            if(timeTextView == null){
+//                                System.out.println("nyull");
+//                            }
+                            assert timeTextView != null;
+                            timeTextView.setVisibility(View.INVISIBLE);
+                            gamePanel.setVisibility(View.INVISIBLE);
+
+                        }
+                    });
+                }
+//                gamePanel.setVisibility(View.INVISIBLE);
                 break;
             }
         }
-        try {
-            sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
-//        gamePanel.EndLevel();
     }
 
 

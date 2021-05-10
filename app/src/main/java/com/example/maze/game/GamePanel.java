@@ -3,29 +3,35 @@ package com.example.maze.game;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.os.HandlerThread;
+import android.os.Looper;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 
 import androidx.annotation.NonNull;
+
+import com.example.maze.game.scene.GameplayScene;
+import com.example.maze.game.scene.SceneManager;
 
 
 @SuppressLint("ViewConstructor")
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
-    private SceneManager sceneManager;
+    private final SceneManager sceneManager;
 
     private GameThread thread;
+    private final long startTime;
 
-
-    public GamePanel(Context context, int level, View endGameNotif){
+    public GamePanel(Context context, int level){
         super(context);
 
         getHolder().addCallback(this);
 
         thread = new GameThread(getHolder(), this);
 
-        this.sceneManager = new SceneManager(context, level, endGameNotif);
+        this.sceneManager = new SceneManager(context, level);
+
+        startTime = System.currentTimeMillis();
 
         setFocusable(true);
     }
@@ -72,5 +78,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public boolean gameEnded(){
         GameplayScene gameplayScene = (GameplayScene) sceneManager.getScenes().get(0);
         return gameplayScene.isGameEnd();
+    }
+    public long getStartTime(){
+        return startTime;
     }
 }

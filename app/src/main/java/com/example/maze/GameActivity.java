@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import androidx.annotation.RequiresApi;
 
@@ -18,6 +19,7 @@ import com.example.maze.game.GamePanel;
 
 public class GameActivity extends Activity {
 
+    private int level;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,17 +33,27 @@ public class GameActivity extends Activity {
         Constants.ENDPT_RADIUS = 40;
         Constants.BALL_RADIUS = 30;
 
-        int level = getIntent().getIntExtra("LEVEL", 0);
-
+        level = getIntent().getIntExtra("LEVEL", 0);
         setContentView(R.layout.activity_game);
 
         LayoutInflater layoutInflater = getLayoutInflater();
         ViewGroup parent = findViewById(R.id.gameLayout);
         if(parent != null){
-            View endGameNotif = findViewById(R.id.gameEndNotification);
             View view = layoutInflater.inflate(R.layout.activity_game, parent);
-            GamePanel gamePanel = new GamePanel(this, level, endGameNotif);
+            GamePanel gamePanel = new GamePanel(this, level);
             parent.addView(gamePanel);
         }
+    }
+
+    public void backButtonClicked(View view){
+        Intent intent = new Intent(this, LevelChoiceActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    public void nextLevelButtonClicked(View view){
+        Intent intent = new Intent(this, GameActivity.class);
+        intent.putExtra("LEVEL", level + 1);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

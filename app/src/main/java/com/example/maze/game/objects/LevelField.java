@@ -28,14 +28,27 @@ public class LevelField implements GameObject, Serializable {
 
         innerWalls = new ArrayList<>();
 
-        if(level != 1){
-            innerWalls.add(new Wall(resources, context, 0, 2*Constants.SCREEN_HEIGHT/9 - Constants.WALL_SIZE, 8*Constants.SCREEN_WIDTH/18, 2*Constants.SCREEN_HEIGHT/9));
-            innerWalls.add(new Wall(resources, context, (int) (10.5*Constants.SCREEN_WIDTH/18), 2*Constants.SCREEN_HEIGHT/9 - Constants.WALL_SIZE, Constants.SCREEN_WIDTH, 2*Constants.SCREEN_HEIGHT/9));
-            innerWalls.add(new Wall(resources, context, (int)(8.5*Constants.SCREEN_WIDTH/18) - Constants.WALL_SIZE,2*Constants.SCREEN_HEIGHT/9 - Constants.WALL_SIZE, (int)(8.5*Constants.SCREEN_WIDTH/18), (int)(4.5*Constants.SCREEN_HEIGHT/9)));
-            innerWalls.add(new Wall(resources, context, (int)(8.5*Constants.SCREEN_WIDTH/18), 3*Constants.SCREEN_HEIGHT/9, 15*Constants.SCREEN_WIDTH/18, 3*Constants.SCREEN_HEIGHT/9 + Constants.WALL_SIZE));
-            innerWalls.add(new Wall(resources, context, (int)(2.5*Constants.SCREEN_WIDTH/18), (int)(4.5*Constants.SCREEN_HEIGHT/9 - Constants.WALL_SIZE), (int)(8.5*Constants.SCREEN_WIDTH/18), (int)(4.5*Constants.SCREEN_HEIGHT/9)));
-            innerWalls.add(new Wall(resources, context, (int)(11*Constants.SCREEN_WIDTH/18), (int)(5.5*Constants.SCREEN_HEIGHT/9 - Constants.WALL_SIZE), Constants.SCREEN_WIDTH, (int)(5.5*Constants.SCREEN_HEIGHT/9)));
-            innerWalls.add(new Wall(resources, context, 0, (int)(6.5*Constants.SCREEN_HEIGHT/9), 12*Constants.SCREEN_WIDTH/18, (int)(6.5*Constants.SCREEN_HEIGHT/9 + Constants.WALL_SIZE)));
+        if(level == 2) {
+            innerWalls.add(new Wall(resources, context, 0, 2 * Constants.SCREEN_HEIGHT / 9 - Constants.WALL_SIZE, 8 * Constants.SCREEN_WIDTH / 18, 2 * Constants.SCREEN_HEIGHT / 9));
+            innerWalls.add(new Wall(resources, context, (int) (10.5 * Constants.SCREEN_WIDTH / 18), 2 * Constants.SCREEN_HEIGHT / 9 - Constants.WALL_SIZE, Constants.SCREEN_WIDTH, 2 * Constants.SCREEN_HEIGHT / 9));
+            innerWalls.add(new Wall(resources, context, (int) (8.5 * Constants.SCREEN_WIDTH / 18) - Constants.WALL_SIZE, 2 * Constants.SCREEN_HEIGHT / 9 - Constants.WALL_SIZE, (int) (8.5 * Constants.SCREEN_WIDTH / 18), (int) (4.5 * Constants.SCREEN_HEIGHT / 9)));
+            innerWalls.add(new Wall(resources, context, (int) (8.5 * Constants.SCREEN_WIDTH / 18), 3 * Constants.SCREEN_HEIGHT / 9, 15 * Constants.SCREEN_WIDTH / 18, 3 * Constants.SCREEN_HEIGHT / 9 + Constants.WALL_SIZE));
+            innerWalls.add(new Wall(resources, context, (int) (2.5 * Constants.SCREEN_WIDTH / 18), (int) (4.5 * Constants.SCREEN_HEIGHT / 9 - Constants.WALL_SIZE), (int) (8.5 * Constants.SCREEN_WIDTH / 18), (int) (4.5 * Constants.SCREEN_HEIGHT / 9)));
+            innerWalls.add(new Wall(resources, context, (int) (11 * Constants.SCREEN_WIDTH / 18), (int) (5.5 * Constants.SCREEN_HEIGHT / 9 - Constants.WALL_SIZE), Constants.SCREEN_WIDTH, (int) (5.5 * Constants.SCREEN_HEIGHT / 9)));
+            innerWalls.add(new Wall(resources, context, 0, (int) (6.5 * Constants.SCREEN_HEIGHT / 9), 12 * Constants.SCREEN_WIDTH / 18, (int) (6.5 * Constants.SCREEN_HEIGHT / 9 + Constants.WALL_SIZE)));
+        }
+        if(level == 3){
+            innerWalls.add(new Wall(context, 36, 18, 4, 1, 5, 10));
+            innerWalls.add(new Wall(context, 36, 18, 4, 13, 28, 14));
+            innerWalls.add(new Wall(context, 36, 18, 9, 4, 10, 13));
+            innerWalls.add(new Wall(context, 36, 18, 13, 5, 28, 6));
+            innerWalls.add(new Wall(context, 36, 18, 13, 9, 14, 13));
+            innerWalls.add(new Wall(context, 36, 18, 17, 6, 18, 10));
+            innerWalls.add(new Wall(context, 36, 18, 17, 14, 18, 17));
+            innerWalls.add(new Wall(context, 36, 18, 21, 9, 22, 13));
+            innerWalls.add(new Wall(context, 36, 18, 25, 6, 26, 10));
+            innerWalls.add(new Wall(context, 36, 18, 27, 1, 28, 5));
+            innerWalls.add(new Wall(context, 36, 18, 31, 4, 32, 14));
         }
 
 
