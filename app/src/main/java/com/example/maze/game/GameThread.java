@@ -2,25 +2,29 @@ package com.example.maze.game;
 
 import android.app.Activity;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.SurfaceHolder;
+import android.view.TextureView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.maze.R;
+import com.example.maze.game.scene.SceneManager;
 
 public class GameThread extends Thread {
 
     public static final int MAX_FPS = 30;
     private double averageFPS;
-    private final SurfaceHolder surfaceHolder;
-    private final GamePanel gamePanel;
+    private final TextureView textureView;
+    private final SceneManager sceneManager;
     private boolean isRunning;
     public static Canvas canvas;
 
-    public GameThread(SurfaceHolder surfaceHolder, GamePanel gamePanel){
+    public GameThread(TextureView textureView, SceneManager sceneManager){
         super();
-        this.surfaceHolder = surfaceHolder;
-        this.gamePanel = gamePanel;
+        this.textureView = textureView;
+        this.sceneManager = sceneManager;
     }
 
     @Override
@@ -37,10 +41,10 @@ public class GameThread extends Thread {
             canvas = null;
 
             try{
-                canvas = this.surfaceHolder.lockCanvas();
-                synchronized (surfaceHolder){
-                    this.gamePanel.update();
-                    this.gamePanel.draw(canvas);
+                canvas = this.textureView.lockCanvas();
+                synchronized (textureView){
+                    this.sceneManager.update();
+                    this.sceneManager.draw(canvas);
                 }
 
             }catch(Exception e){
@@ -48,7 +52,7 @@ public class GameThread extends Thread {
             }finally {
                 if(canvas != null){
                     try{
-                        surfaceHolder.unlockCanvasAndPost(canvas);
+                        textureView.unlockCanvasAndPost(canvas);
                     }catch (Exception e){
                         e.printStackTrace();
                     }
@@ -75,12 +79,8 @@ public class GameThread extends Thread {
                 totalTime = 0;
                 System.out.println(averageFPS);
             }
-            if(gamePanel.gameEnded()){
-                synchronized (surfaceHolder){
-                    ((Activity)gamePanel.getContext()).runOnUiThread(()->{
-                        gamePanel.setVisibility(View.GONE);
-                    });
-                }
+            if(sceneManager.gameEnded()){
+                break;
             }
         }
 

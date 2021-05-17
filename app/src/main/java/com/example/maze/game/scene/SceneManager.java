@@ -28,6 +28,10 @@ public class SceneManager {
     public void draw(Canvas canvas){
         scenes.get(activeScene).draw(canvas);
     }
+    public void drawBackground(Canvas canvas){scenes.get(activeScene).drawBackground(canvas);}
+    public boolean gameEnded(){
+        return ((GameplayScene)scenes.get(activeScene)).isGameEnd();
+    }
 
     public ArrayList<Scene> getScenes(){
         return scenes;

@@ -4,8 +4,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Shader;
 
@@ -69,11 +71,16 @@ public class GameplayScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
-        canvas.drawPaint(paint);
+//        canvas.drawPaint(paint);
 //        canvas.drawBitmap(backgroundBitmap,null, rectangle, paint);
-        levelField.draw(canvas);
+        canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
         ball.draw(canvas);
 
+    }
+
+    @Override
+    public void drawBackground(Canvas canvas) {
+        levelField.draw(canvas);
     }
 
     @Override

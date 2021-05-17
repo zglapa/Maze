@@ -27,7 +27,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
         getHolder().addCallback(this);
 
-        thread = new GameThread(getHolder(), this);
+//        thread = new GameThread(getHolder(), this);
 
         this.sceneManager = new SceneManager(context, level);
 
@@ -38,7 +38,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder holder) {
-        thread = new GameThread(getHolder(), this);
+//        thread = new GameThread(getHolder(), this);
 
         thread.setRunning(true);
         thread.start();

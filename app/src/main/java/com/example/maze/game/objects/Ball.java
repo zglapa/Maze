@@ -24,7 +24,7 @@ public class Ball implements GameObject {
     private final Rect realBody;
     private final Circle circle;
     private final Rectangle rectangle;
-//    private final Bitmap bitmap;
+    private final Bitmap bitmap;
 
     public Ball(Context context, int widthDivider, int heightDivider, int x, int y){
         this.radius = Constants.BALL_RADIUS;
@@ -32,10 +32,10 @@ public class Ball implements GameObject {
         paint.setColor(ContextCompat.getColor(context, R.color.red));
         this.positionX =  x * (double)Constants.SCREEN_WIDTH/widthDivider;
         this.positionY = y * (double)Constants.SCREEN_HEIGHT/heightDivider;
+        this.realBody = new Rect((int)(this.positionX-radius*1.15), (int)(this.positionY-radius*1.15), (int)(this.positionX+radius*1.15), (int)(this.positionY+radius*1.15));
         this.circle = new Circle((float)positionX, (float)positionY, (float)radius);
-        this.realBody = new Rect((int)(this.positionX-radius), (int)(this.positionY-radius), (int)(this.positionX+radius), (int)(this.positionY+radius));
         this.rectangle = new Rectangle((float)(positionX-radius), (float)(positionY-radius), (float)(2*radius), (float)(2*radius));
-//        this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ball);
+        this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ball);
     }
     public Ball(Context context, double positionX, double positionY){
         this.radius = Constants.BALL_RADIUS;
@@ -43,15 +43,17 @@ public class Ball implements GameObject {
         paint.setColor(ContextCompat.getColor(context, R.color.red));
         this.positionX =  positionX;
         this.positionY = positionY;
+        this.realBody = new Rect((int)(this.positionX-radius*1.15), (int)(this.positionY-radius*1.15), (int)(this.positionX+radius*1.15), (int)(this.positionY+radius*1.15));
         this.circle = new Circle((float)positionX, (float)positionY, (float)radius);
-        this.realBody = new Rect((int)(this.positionX-radius), (int)(this.positionY-radius), (int)(this.positionX+radius), (int)(this.positionY+radius));
-        this.rectangle = new Rectangle((float)(positionX-radius), (float)(positionY-radius), (float)(2*radius), (float)(2*radius));
+        this.rectangle = new Rectangle((float)(this.positionX-radius), (float)(this.positionY-radius), (float)(2*radius), (float)(2*radius));
+        this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ball);
+
     }
 
     @Override
     public void draw(Canvas canvas){
-//        canvas.drawBitmap(bitmap, null, realBody, paint);
-        canvas.drawCircle((float)positionX, (float)positionY, (float)radius, paint);
+        canvas.drawBitmap(bitmap, null, realBody, paint);
+//        canvas.drawCircle((float)positionX, (float)positionY, (float)radius, paint);
     }
 
     @Override
@@ -66,7 +68,7 @@ public class Ball implements GameObject {
     public void setPosition(double x, double y) {
         this.positionX = x;
         this.positionY = y;
-        realBody.set((int)(positionX - radius), (int)(positionY - radius), (int)(positionX + radius), (int)(positionY + radius));
+        realBody.set((int)(positionX - radius*1.15), (int)(positionY - radius*1.15), (int)(positionX + radius*1.15), (int)(positionY + radius*1.15));
         this.circle.setPosition((float)x, (float)y);
     }
 

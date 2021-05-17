@@ -2,132 +2,33 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainConstraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/grass_plain"
 
 
+    android:background="@drawable/grass_game"
     tools:context=".GameActivity">
 
-    <FrameLayout
-        android:id="@+id/frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextureView
+        android:id="@+id/drawView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="626dp"
-                android:layout_height="357dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="128dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:layout_editor_absoluteX="70dp">
-
-                    <TextView
-                        android:id="@+id/levelFinished"
-                        android:layout_width="267dp"
-                        android:layout_height="109dp"
-                        android:fontFamily="@font/bungee_inline"
-                        android:text="LEVEL FINISHED"
-                        android:textAlignment="center"
-                        android:textColor="#000000"
-                        android:textSize="34sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="76dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/timeTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/bungee_inline"
-                        android:text="TIME"
-                        android:textAlignment="center"
-                        android:textColor="#000000"
-                        android:textSize="20sp"
-                        android:visibility="invisible" />
-
-                    <TextView
-                        android:id="@+id/timeValueTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/bungee_inline"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="#000000"
-                        android:textSize="20sp"
-                        android:visibility="invisible" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/backToLevelChoiceButton"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="30dp"
-                        android:layout_height="60dp"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/hedge_long"
-                        android:fontFamily="@font/bungee_inline"
-                        android:onClick="backButtonClicked"
-                        android:text="MENU"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-
-                    <Button
-                        android:id="@+id/nextLevelButton"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="30dp"
-                        android:layout_height="60dp"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/hedge_long"
-                        android:fontFamily="@font/bungee_inline"
-                        android:onClick="nextLevelButtonClicked"
-                        android:text="NEXT LEVEL"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/gameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </FrameLayout>
-
+    <TextureView
+        android:id="@+id/backgroundView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
