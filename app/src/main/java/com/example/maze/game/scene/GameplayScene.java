@@ -62,6 +62,9 @@ public class GameplayScene implements Scene {
 
     @Override
     public void update() {
+        for(Eater eater: levelField.getEaters()){
+            eater.update();
+        }
         if(!gameEnd){
             levelField.getEndPoint().update();
             updateBallPosition();
@@ -74,6 +77,9 @@ public class GameplayScene implements Scene {
 //        canvas.drawPaint(paint);
 //        canvas.drawBitmap(backgroundBitmap,null, rectangle, paint);
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+        for(Eater eater: levelField.getEaters()){
+            eater.draw(canvas);
+        }
         ball.draw(canvas);
 
     }

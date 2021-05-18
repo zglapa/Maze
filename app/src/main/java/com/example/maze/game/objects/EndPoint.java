@@ -20,13 +20,9 @@ public class EndPoint implements GameObject {
     private final double positionY;
     private final double radius;
     private final Paint paint;
-    private Rect realBody;
-    private Circle circle;
-
-//    private Animation idle;
-//    private Animation spin;
-//
-//    private AnimationManager animationManager;
+    private final Rect realBody;
+    private final Circle circle;
+    private final Bitmap bitmap;
 
     public EndPoint(Context context, int widthDivider, int heightDivider, int x, int y){
         this.radius = Constants.ENDPT_RADIUS;
@@ -35,28 +31,18 @@ public class EndPoint implements GameObject {
         this.positionX =  x * (double)Constants.SCREEN_WIDTH/widthDivider;
         this.positionY = y * (double)Constants.SCREEN_HEIGHT/heightDivider;
         this.realBody = new Rect((int)(this.positionX-radius), (int)(this.positionY-radius), (int)(this.positionX+radius), (int)(this.positionY+radius));
-        this.circle = new Circle((float)this.positionX, (float)this.positionY, (float)radius);
-//        Bitmap idleImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.wheel1);
-//        Bitmap spin1 = BitmapFactory.decodeResource(context.getResources(), R.drawable.wheel1);
-//        Bitmap spin2 = BitmapFactory.decodeResource(context.getResources(), R.drawable.wheel2);
-//        Bitmap spin3 = BitmapFactory.decodeResource(context.getResources(), R.drawable.wheel3);
-//        Bitmap spin4 = BitmapFactory.decodeResource(context.getResources(), R.drawable.wheel4);
-//
-//        idle = new Animation(new Bitmap[]{idleImage},2);
-//        spin = new Animation(new Bitmap[]{spin1, spin2, spin3, spin4}, 0.5f);
-//
-//        this.animationManager = new AnimationManager(new Animation[]{idle, spin});
+        this.circle = new Circle((float)this.positionX, (float)this.positionY, (float)radius*0.8f);
+        this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.basket);
+
     }
     @Override
     public void draw(Canvas canvas){
-        canvas.drawCircle((float)positionX, (float)positionY, (float)radius, paint);
-//        animationManager.draw(canvas, realBody);
+//        canvas.drawCircle((float)positionX, (float)positionY, (float)radius, paint);
+        canvas.drawBitmap(bitmap, null, realBody, paint);
     }
 
     @Override
     public void update(){
-//        animationManager.playAnimations(1);
-//        animationManager.update();
     }
 
     public boolean intersects(Ball ball){

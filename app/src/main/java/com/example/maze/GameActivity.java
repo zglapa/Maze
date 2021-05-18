@@ -42,9 +42,9 @@ public class GameActivity extends Activity implements TextureView.SurfaceTexture
         Constants.SCREEN_HEIGHT = displayMetrics.heightPixels;
         Constants.SCREEN_WIDTH = displayMetrics.widthPixels;
         Constants.WALL_SIZE = Constants.SCREEN_HEIGHT/18;
-        Constants.ENDPT_RADIUS = 60;
+        Constants.ENDPT_RADIUS = 80;
         Constants.BALL_RADIUS = 40;
-        Constants.EATER_RADIUS = 45;
+        Constants.EATER_RADIUS = 80;
 
         level = getIntent().getIntExtra("LEVEL", 0);
 

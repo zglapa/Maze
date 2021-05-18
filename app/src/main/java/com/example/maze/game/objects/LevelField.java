@@ -80,9 +80,9 @@ public class LevelField implements GameObject, Serializable {
         for(Wall wall: innerWalls){
             wall.draw(canvas);
         }
-        for(Eater eater: eaters){
-            eater.draw(canvas);
-        }
+//        for(Eater eater: eaters){
+//            eater.draw(canvas);
+//        }
         endPoint.draw(canvas);
     }
 

@@ -1636,6 +1636,7 @@ drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
 drawable ball
+drawable basket
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1650,6 +1651,9 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable eater1
+drawable eater2
+drawable eater3
 drawable game_grass
 drawable grass
 drawable grass_game
