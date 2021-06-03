@@ -3,4 +3,7 @@
     <string name="main_title">MAZE</string>
     <string name="main_play">PLAY</string>
     <string name="main_settings">SETTINGS</string>
+    <string name="menu">MENU</string>
+    <string name="next_level">NEXT LEVEL</string>
+    <string name="time">TIME:</string>
 </resources>

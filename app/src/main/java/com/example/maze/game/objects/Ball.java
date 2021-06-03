@@ -26,12 +26,12 @@ public class Ball implements GameObject {
     private final Rectangle rectangle;
     private final Bitmap bitmap;
 
-    public Ball(Context context, int widthDivider, int heightDivider, int x, int y){
+    public Ball(Context context, int widthDivider, int heightDivider, Point ballStartPoint){
         this.radius = Constants.BALL_RADIUS;
         paint = new Paint();
         paint.setColor(ContextCompat.getColor(context, R.color.red));
-        this.positionX =  x * (double)Constants.SCREEN_WIDTH/widthDivider;
-        this.positionY = y * (double)Constants.SCREEN_HEIGHT/heightDivider;
+        this.positionX = ballStartPoint.x * (double)Constants.SCREEN_WIDTH/widthDivider;
+        this.positionY = ballStartPoint.y * (double)Constants.SCREEN_HEIGHT/heightDivider;
         this.realBody = new Rect((int)(this.positionX-radius*1.15), (int)(this.positionY-radius*1.15), (int)(this.positionX+radius*1.15), (int)(this.positionY+radius*1.15));
         this.circle = new Circle((float)positionX, (float)positionY, (float)radius);
         this.rectangle = new Rectangle((float)(positionX-radius), (float)(positionY-radius), (float)(2*radius), (float)(2*radius));

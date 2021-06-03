@@ -1686,6 +1686,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable icon
 drawable icon_round
+drawable level
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1877,6 +1878,7 @@ id easeOut
 id edit_query
 id elastic
 id end
+id endGame
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
@@ -1940,6 +1942,7 @@ id levelButton6
 id levelButton7
 id levelButton8
 id levelButton9
+id levelEnded
 id line1
 id line3
 id linear
@@ -1969,6 +1972,7 @@ id material_timepicker_mode_button
 id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
+id menuButton
 id message
 id middle
 id mini
@@ -2005,6 +2009,7 @@ id mtrl_view_tag_bottom_padding
 id multiply
 id navigation_header_container
 id never
+id nextLevelButton
 id noScroll
 id none
 id normal
@@ -2034,6 +2039,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recycler
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2097,6 +2103,7 @@ id stretch
 id submenuarrow
 id submit_area
 id tabMode
+id tableOfLevels
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -2117,6 +2124,7 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView2
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2127,6 +2135,8 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id time
+id timeField
+id timeText
 id title
 id titleDividerNoCustom
 id title_template
@@ -2365,6 +2375,7 @@ string material_timepicker_minute
 string material_timepicker_pm
 string material_timepicker_select_time
 string material_timepicker_text_input_mode_description
+string menu
 string mtrl_badge_numberless_content_description
 string mtrl_chip_close_icon_content_description
 string mtrl_exceed_max_badge_number_content_description
@@ -2400,6 +2411,7 @@ string mtrl_picker_toggle_to_calendar_input_mode
 string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
+string next_level
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -2407,6 +2419,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string time
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow

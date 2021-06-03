@@ -11,9 +11,12 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Shader;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.example.maze.R;
 import com.example.maze.game.Constants;
 import com.example.maze.game.objects.Eater;
+import com.example.maze.game.objects.LevelFactory;
 import com.example.maze.game.sensors.Orientation;
 import com.example.maze.game.objects.Ball;
 import com.example.maze.game.objects.LevelField;
@@ -30,10 +33,8 @@ public class GameplayScene implements Scene {
     private final Orientation orientation;
     private long frameTime;
     private final Paint paint;
-    private Bitmap backgroundBitmap;
-    private Rect rectangle;
     private final Point ballStartPosition;
-
+    private long startTime = 0;
     private boolean gameEnd;
 
     private final Context context;
@@ -42,11 +43,14 @@ public class GameplayScene implements Scene {
         this.sceneManager = sceneManager;
         this.context = context;
 
-        ball = new Ball(context, 54, 27, 5, 4);
-        ballPoint = new Point((int)ball.getPositionX(), (int)ball.getPositionY());
-        ballStartPosition = new Point((int)ball.getPositionX(), (int)ball.getPositionY());
+        levelField = createLevelField(context, level);
 
-        levelField = new LevelField(context.getResources(), context, level);
+        ballPoint = new Point(levelField.getBallStartPoint());
+        ball = new Ball(context, 54, 27, ballPoint);
+
+        int ballStartX = (int) (ballPoint.x * Constants.SCREEN_WIDTH/54f);
+        int ballStartY = (int) (ballPoint.y * Constants.SCREEN_HEIGHT/27f);
+        ballStartPosition = new Point(ballStartX, ballStartY);
 
         orientation = new Orientation(context);
         orientation.register();
@@ -54,9 +58,6 @@ public class GameplayScene implements Scene {
 
         paint = new Paint();
         paint.setColor(context.getResources().getColor(R.color.grass_green, null));
-
-//        backgroundBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.grass_simple);
-//        rectangle = new Rect(0, 0, Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT);
 
     }
 
@@ -74,8 +75,6 @@ public class GameplayScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
-//        canvas.drawPaint(paint);
-//        canvas.drawBitmap(backgroundBitmap,null, rectangle, paint);
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
         for(Eater eater: levelField.getEaters()){
             eater.draw(canvas);
@@ -97,8 +96,6 @@ public class GameplayScene implements Scene {
     public void updateBallPosition(){
         int x = ballPoint.x, y = ballPoint.y;
 
-        int finalXmove = 0;
-        int finalYmove = 0;
         long elapsedTime = System.currentTimeMillis() - frameTime;
         frameTime = System.currentTimeMillis();
         if(orientation.getOrientation() != null  && orientation.getStartOrientation() != null){
@@ -109,9 +106,6 @@ public class GameplayScene implements Scene {
             float xSpeed = 5 * xx * Constants.SCREEN_WIDTH/2000f;
             float ySpeed = 5 * yy * Constants.SCREEN_HEIGHT/2000f;
 
-            Random random = new Random();
-            finalXmove = (int)(xSpeed*elapsedTime);
-            finalYmove = (int)(ySpeed*elapsedTime);
             x = (int) (ballPoint.x - xSpeed*elapsedTime);
             y = (int) (ballPoint.y - ySpeed*elapsedTime);
         }
@@ -155,14 +149,48 @@ public class GameplayScene implements Scene {
         }
 
 
-
+        if(startTime == 0 && (prevBall.getPositionX() != ball.getPositionX() || prevBall.getPositionY() != ball.getPositionY())){
+            startTime = System.currentTimeMillis();
+        }
         if(levelField.getEndPoint().intersects(ball)){
             gameEnd = true;
-//            endGameNotif.setVisibility(View.VISIBLE);
         }
 
     }
     public boolean isGameEnd(){
         return gameEnd;
+    }
+    public long getStartTime(){return startTime;}
+    private LevelField createLevelField(Context context, int level){
+        LevelField levelFieldTemp;
+        switch(level) {
+            case 1:
+                levelFieldTemp = LevelFactory.produceLevel1(context);
+                break;
+            case 2:
+                levelFieldTemp = LevelFactory.produceLevel2(context);
+                break;
+            case 3:
+                levelFieldTemp = LevelFactory.produceLevel3(context);
+                break;
+            case 4:
+                levelFieldTemp = LevelFactory.produceLevel4(context);
+                break;
+            case 5:
+                levelFieldTemp = LevelFactory.produceLevel5(context);
+                break;
+            case 6:
+                levelFieldTemp = LevelFactory.produceLevel6(context);
+                break;
+            case 7:
+                levelFieldTemp = LevelFactory.produceLevel7(context);
+                break;
+            case 8:
+                levelFieldTemp = LevelFactory.produceLevel8(context);
+                break;
+            default:
+                levelFieldTemp = LevelFactory.produceLevel1(context);
+        }
+        return levelFieldTemp;
     }
 }

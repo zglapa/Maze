@@ -2,15 +2,17 @@ package com.example.maze.game;
 
 import android.app.Activity;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.view.SurfaceHolder;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.maze.R;
 import com.example.maze.game.scene.SceneManager;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class GameThread extends Thread {
 
@@ -20,11 +22,13 @@ public class GameThread extends Thread {
     private final SceneManager sceneManager;
     private boolean isRunning;
     public static Canvas canvas;
+    private final Activity activity;
 
-    public GameThread(TextureView textureView, SceneManager sceneManager){
+    public GameThread(TextureView textureView, SceneManager sceneManager, Activity activity){
         super();
         this.textureView = textureView;
         this.sceneManager = sceneManager;
+        this.activity = activity;
     }
 
     @Override
@@ -80,7 +84,20 @@ public class GameThread extends Thread {
                 System.out.println(averageFPS);
             }
             if(sceneManager.gameEnded()){
+                activity.runOnUiThread(()->{
+                    activity.findViewById(R.id.endGame).setVisibility(View.VISIBLE);
+                    TextView levelEndTextView = activity.findViewById(R.id.levelEnded);
+                    TextView timeTextView = activity.findViewById(R.id.timeField);
+                    String levelEnd = "Level " + sceneManager.getLevel() + " finished!";
+                    levelEndTextView.setText(levelEnd);
+                    long time = (System.currentTimeMillis() - sceneManager.getStartTime());
+                    String hms = String.format(Locale.ENGLISH, "%02d:%02d:%03d", TimeUnit.MILLISECONDS.toMinutes(time),
+                            TimeUnit.MILLISECONDS.toSeconds(time) % TimeUnit.MINUTES.toSeconds(1),
+                            TimeUnit.MILLISECONDS.toMillis(time) % TimeUnit.SECONDS.toMillis(1));
+                    timeTextView.setText(hms);
+                });
                 break;
+
             }
         }
 

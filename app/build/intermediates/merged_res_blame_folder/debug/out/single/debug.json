@@ -68,12 +68,12 @@
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/hedge16.png"
     },
     {
-        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
-    },
-    {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_basket.png.flat",
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/basket.png"
+    },
+    {
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/layout_activity_settings.xml.flat",
@@ -100,12 +100,16 @@
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_level.png.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/level.png"
     },
     {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     },
     {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_hedge_long.png.flat",
@@ -164,12 +168,12 @@
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/layout/activity_game.xml"
     },
     {
-        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/font_bungee_inline.ttf.flat",
-        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/font/bungee_inline.ttf"
-    },
-    {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_hedge12.png.flat",
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/hedge12.png"
+    },
+    {
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/font_bungee_inline.ttf.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/font/bungee_inline.ttf"
     },
     {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",

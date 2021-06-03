@@ -3,30 +3,24 @@ package com.example.maze;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.SurfaceTexture;
-import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.example.maze.game.Constants;
-import com.example.maze.game.GamePanel;
 import com.example.maze.game.GameThread;
 import com.example.maze.game.scene.SceneManager;
 
 public class GameActivity extends Activity implements TextureView.SurfaceTextureListener {
-    private GamePanel gamePanel;
     private TextureView backgroundView;
     private TextureView drawView;
     private GameThread thread;
@@ -44,7 +38,7 @@ public class GameActivity extends Activity implements TextureView.SurfaceTexture
         Constants.WALL_SIZE = Constants.SCREEN_HEIGHT/18;
         Constants.ENDPT_RADIUS = 80;
         Constants.BALL_RADIUS = 40;
-        Constants.EATER_RADIUS = 80;
+        Constants.EATER_RADIUS = 70;
 
         level = getIntent().getIntExtra("LEVEL", 0);
 
@@ -86,7 +80,8 @@ public class GameActivity extends Activity implements TextureView.SurfaceTexture
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();while(true){
+        super.onDestroy();
+        while(true){
             try{
                 System.out.println("trying");
                 thread.setRunning(false);
@@ -99,21 +94,9 @@ public class GameActivity extends Activity implements TextureView.SurfaceTexture
         }
     }
 
-    public void backButtonClicked(View view){
-        Intent intent = new Intent(this, LevelChoiceActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-    public void nextLevelButtonClicked(View view){
-        Intent intent = new Intent(this, GameActivity.class);
-        intent.putExtra("LEVEL", level + 1);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
-
     @Override
     public void onSurfaceTextureAvailable(@NonNull SurfaceTexture surface, int width, int height) {
-        thread = new GameThread(drawView, sceneManager);
+        thread = new GameThread(drawView, sceneManager, this);
         thread.setRunning(true);
         thread.start();
     }
@@ -142,6 +125,27 @@ public class GameActivity extends Activity implements TextureView.SurfaceTexture
     @Override
     public void onSurfaceTextureUpdated(@NonNull SurfaceTexture surface) {
 
+    }
+    private void unlockNewLevel(int level){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("TOP_LEVEL");
+        editor.putInt("TOP_LEVEL", level);
+        editor.apply();
+    }
+
+    public void menuButtonClicked(View view){
+        unlockNewLevel(level + 1);
+        Intent intent = new Intent(this, LevelChoiceActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+    public void nextLevelButtonClicked(View view){
+        unlockNewLevel(level + 1);
+        Intent intent = new Intent(this, GameActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("LEVEL", level + 1);
+        startActivity(intent);
     }
 
 }

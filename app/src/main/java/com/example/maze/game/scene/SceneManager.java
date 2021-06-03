@@ -11,9 +11,11 @@ import java.util.ArrayList;
 public class SceneManager {
     private ArrayList<Scene> scenes = new ArrayList<>();
     private int activeScene;
+    private final int level;
 
     public SceneManager(Context context, int level){
         activeScene = 0;
+        this.level = level;
         scenes.add(new GameplayScene(this, context, level));
     }
 
@@ -32,7 +34,8 @@ public class SceneManager {
     public boolean gameEnded(){
         return ((GameplayScene)scenes.get(activeScene)).isGameEnd();
     }
-
+    public int getLevel(){return level;}
+    public long getStartTime(){return ((GameplayScene)scenes.get(activeScene)).getStartTime(); }
     public ArrayList<Scene> getScenes(){
         return scenes;
     }
