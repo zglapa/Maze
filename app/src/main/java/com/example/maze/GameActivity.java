@@ -1,7 +1,6 @@
 package com.example.maze;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
@@ -13,23 +12,20 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.maze.game.Constants;
 import com.example.maze.game.GameThread;
 import com.example.maze.game.database.AppDatabase;
 import com.example.maze.game.database.Player;
-import com.example.maze.game.database.PlayerAdapter;
-import com.example.maze.game.scene.SceneManager;
+import com.example.maze.game.scene.GameplayScene;
 
 public class GameActivity extends Activity implements TextureView.SurfaceTextureListener {
     private TextureView backgroundView;
     private TextureView drawView;
     private GameThread thread;
-    private SceneManager sceneManager;
+    private GameplayScene gameplayScene;
     private int level;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +44,7 @@ public class GameActivity extends Activity implements TextureView.SurfaceTexture
         level = getIntent().getIntExtra("LEVEL", 0);
 
 
-        this.sceneManager = new SceneManager(this, level);
+        this.gameplayScene = new GameplayScene(this, level);
         setContentView(R.layout.activity_game);
 
         backgroundView = findViewById(R.id.backgroundView);
@@ -56,7 +52,7 @@ public class GameActivity extends Activity implements TextureView.SurfaceTexture
             @Override
             public void onSurfaceTextureAvailable(@NonNull SurfaceTexture surface, int width, int height) {
                 Canvas canvas = backgroundView.lockCanvas();
-                sceneManager.drawBackground(canvas);
+                gameplayScene.drawBackground(canvas);
                 backgroundView.unlockCanvasAndPost(canvas);
             }
 
@@ -101,7 +97,7 @@ public class GameActivity extends Activity implements TextureView.SurfaceTexture
 
     @Override
     public void onSurfaceTextureAvailable(@NonNull SurfaceTexture surface, int width, int height) {
-        thread = new GameThread(drawView, sceneManager, this);
+        thread = new GameThread(drawView, gameplayScene, this);
         thread.setRunning(true);
         thread.start();
     }

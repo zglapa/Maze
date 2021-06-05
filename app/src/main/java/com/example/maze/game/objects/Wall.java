@@ -1,20 +1,16 @@
 package com.example.maze.game.objects;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Point;
 import android.graphics.Rect;
 import androidx.core.content.ContextCompat;
 
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Polygon;
-import com.badlogic.gdx.math.Rectangle;
 import com.example.maze.R;
 import com.example.maze.game.Constants;
 
@@ -24,7 +20,6 @@ public class Wall implements GameObject {
     private final int left, top, right, bottom;
     private final Paint paint;
     private final Rect realBody;
-    private final Rectangle rectangle;
     private final Bitmap bitmap;
 
 
@@ -36,10 +31,12 @@ public class Wall implements GameObject {
         this.bottom = bottom * Constants.SCREEN_HEIGHT/heightDivider;
         this.paint = new Paint();
         this.paint.setColor(ContextCompat.getColor(context, R.color.hedge_green));
-        this.rectangle = new Rectangle(this.left, this.top, this.right - this.left, this.bottom - this.top);
         this.realBody = new Rect(this.left, this.top, this.right, this.bottom);
         int resourceID;
         switch (Math.max(right - left, bottom - top)){
+            case 1:
+            case 2:
+            case 3:
             case 4:
             case 5:
                 resourceID = R.drawable.hedge4;
@@ -98,7 +95,6 @@ public class Wall implements GameObject {
     @Override
     public void draw(Canvas canvas) {
         canvas.drawBitmap(bitmap, null, realBody, paint);
-//        canvas.drawRect(realBody, paint);
     }
 
     @Override
@@ -107,11 +103,6 @@ public class Wall implements GameObject {
     }
 
     public boolean intersects(Ball ball, Ball prevBall) {
-//        if(Intersector.overlaps(ball.getBoundingBox(), this.rectangle)){
-//            paint.setColor(Color.GREEN);
-//        }
-//        else paint.setColor(Color.RED);
-//        return Intersector.overlaps(ball.getBoundingBox(), this.rectangle);
         float[] vertices;
         if(prevBall.getPositionX() > ball.getPositionX()){
             vertices = new float[]{(float)(ball.getPositionX() - ball.getRadius()), (float)(ball.getPositionY() - ball.getRadius()),
@@ -129,12 +120,7 @@ public class Wall implements GameObject {
         if(Intersector.overlapConvexPolygons(thisPolygon, polygon)){
             return true;
         }
-        if(!intersectsLeft(ball) || !intersectsRight(ball) || !intersectsTop(ball) || !intersectsBottom(ball)) {
-//            paint.setColor(Color.GREEN);
-            return false;
-        }
-//        paint.setColor(Color.RED);
-        return true;
+        return intersectsLeft(ball) && intersectsRight(ball) && intersectsTop(ball) && intersectsBottom(ball);
     }
     public boolean intersectsLeft(Ball ball){
         return ball.getPositionX() + ball.getRadius() >= left;

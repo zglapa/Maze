@@ -8,28 +8,25 @@ import android.widget.TextView;
 
 import com.example.maze.R;
 import com.example.maze.game.database.AppDatabase;
-import com.example.maze.game.scene.SceneManager;
+import com.example.maze.game.scene.GameplayScene;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class GameThread extends Thread {
 
     public static final int MAX_FPS = 30;
-    private double averageFPS;
     private final TextureView textureView;
-    private final SceneManager sceneManager;
+    private final GameplayScene gameplayScene;
     private boolean isRunning;
     public static Canvas canvas;
     private final Activity activity;
     public long levelTime;
 
-    public GameThread(TextureView textureView, SceneManager sceneManager, Activity activity){
+    public GameThread(TextureView textureView, GameplayScene gameplayScene, Activity activity){
         super();
         this.textureView = textureView;
-        this.sceneManager = sceneManager;
+        this.gameplayScene = gameplayScene;
         this.activity = activity;
     }
 
@@ -49,8 +46,8 @@ public class GameThread extends Thread {
             try{
                 canvas = this.textureView.lockCanvas();
                 synchronized (textureView){
-                    this.sceneManager.update();
-                    this.sceneManager.draw(canvas);
+                    this.gameplayScene.update();
+                    this.gameplayScene.draw(canvas);
                 }
 
             }catch(Exception e){
@@ -80,21 +77,21 @@ public class GameThread extends Thread {
             frameCount++;
 
             if(frameCount == MAX_FPS){
-                averageFPS = 1000f/(((double)totalTime/frameCount)/1000000f);
+                double averageFPS = 1000f / (((double) totalTime / frameCount) / 1000000f);
                 frameCount = 0;
                 totalTime = 0;
                 System.out.println(averageFPS);
             }
-            if(sceneManager.gameEnded()){
+            if(gameplayScene.isGameEnd()){
                 activity.runOnUiThread(()->{
                     activity.findViewById(R.id.endGame).setVisibility(View.VISIBLE);
                     TextView levelEndTextView = activity.findViewById(R.id.levelEnded);
                     TextView timeTextView = activity.findViewById(R.id.timeField);
-                    String levelEnd = "Level " + sceneManager.getLevel() + " finished!";
+                    String levelEnd = "Level " + gameplayScene.getLevel() + " finished!";
                     levelEndTextView.setText(levelEnd);
-                    long time = (System.currentTimeMillis() - sceneManager.getStartTime());
+                    long time = (System.currentTimeMillis() - gameplayScene.getStartTime());
                     levelTime = time;
-                    manageScore(sceneManager.getLevel(), time);
+                    manageScore(gameplayScene.getLevel(), time);
                     String hms = String.format(Locale.ENGLISH, "%02d:%02d:%03d", TimeUnit.MILLISECONDS.toMinutes(time),
                             TimeUnit.MILLISECONDS.toSeconds(time) % TimeUnit.MINUTES.toSeconds(1),
                             TimeUnit.MILLISECONDS.toMillis(time) % TimeUnit.SECONDS.toMillis(1));

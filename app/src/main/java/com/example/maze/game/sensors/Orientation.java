@@ -16,7 +16,7 @@ public class Orientation implements SensorEventListener {
     private float[] magOutput;
 
 
-    private float[] orientation;
+    private final float[] orientation;
     public float[] getOrientation(){
         return orientation;
     }
@@ -35,10 +35,6 @@ public class Orientation implements SensorEventListener {
     public void register(){
         manager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_GAME);
         manager.registerListener(this, magnetometer, SensorManager.SENSOR_DELAY_GAME);
-    }
-
-    public void pause(){
-        manager.unregisterListener(this);
     }
 
     @Override

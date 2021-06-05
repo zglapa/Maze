@@ -1,19 +1,11 @@
 package com.example.maze.game.scene;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
-import android.graphics.Rect;
-import android.graphics.Shader;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import com.example.maze.R;
 import com.example.maze.game.Constants;
 import com.example.maze.game.objects.Eater;
 import com.example.maze.game.objects.LevelFactory;
@@ -22,27 +14,23 @@ import com.example.maze.game.objects.Ball;
 import com.example.maze.game.objects.LevelField;
 import com.example.maze.game.objects.Wall;
 
-import java.util.Random;
 
 public class GameplayScene implements Scene {
 
-    private final SceneManager sceneManager;
     private final Ball ball;
     private final Point ballPoint;
     private final LevelField levelField;
     private final Orientation orientation;
     private long frameTime;
-    private final Paint paint;
     private final Point ballStartPosition;
     private long startTime = 0;
     private boolean gameEnd;
-
+    private final int level;
     private final Context context;
 
-    public GameplayScene(SceneManager sceneManager, Context context, int level){
-        this.sceneManager = sceneManager;
+    public GameplayScene(Context context, int level){
         this.context = context;
-
+        this.level = level;
         levelField = createLevelField(context, level);
 
         ballPoint = new Point(levelField.getBallStartPoint());
@@ -55,9 +43,6 @@ public class GameplayScene implements Scene {
         orientation = new Orientation(context);
         orientation.register();
         frameTime = System.currentTimeMillis();
-
-        paint = new Paint();
-        paint.setColor(context.getResources().getColor(R.color.grass_green, null));
 
     }
 
@@ -79,6 +64,7 @@ public class GameplayScene implements Scene {
         for(Eater eater: levelField.getEaters()){
             eater.draw(canvas);
         }
+        levelField.getEndPoint().draw(canvas);
         ball.draw(canvas);
 
     }
@@ -86,11 +72,6 @@ public class GameplayScene implements Scene {
     @Override
     public void drawBackground(Canvas canvas) {
         levelField.draw(canvas);
-    }
-
-    @Override
-    public void terminate() {
-        sceneManager.setScene(0);
     }
 
     public void updateBallPosition(){
@@ -164,9 +145,6 @@ public class GameplayScene implements Scene {
     private LevelField createLevelField(Context context, int level){
         LevelField levelFieldTemp;
         switch(level) {
-            case 1:
-                levelFieldTemp = LevelFactory.produceLevel1(context);
-                break;
             case 2:
                 levelFieldTemp = LevelFactory.produceLevel2(context);
                 break;
@@ -192,5 +170,9 @@ public class GameplayScene implements Scene {
                 levelFieldTemp = LevelFactory.produceLevel1(context);
         }
         return levelFieldTemp;
+    }
+
+    public int getLevel() {
+        return level;
     }
 }

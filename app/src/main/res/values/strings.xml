@@ -6,6 +6,28 @@
     <string name="menu">MENU</string>
     <string name="next_level">NEXT LEVEL</string>
     <string name="time">TIME:</string>
+    <string name="ball_type">BALL TYPE</string>
+    <string name="settings">SETTINGS</string>
+    <string name="hall_of_fame">HALL OF FAME</string>
+    <string name="maze_title">Maze title</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="_10">10</string>
+    <string name="_11">11</string>
+    <string name="_12">12</string>
+    <string name="highscore">HIGHSCORE</string>
+    <string name="player">PLAYER</string>
+    <string name="time_str">TIME</string>
+    <string name="save">Save</string>
+    <string name="type_your_name">Type your name</string>
+    <string name="highscore_sign">HIGHSCORE!</string>
     <string-array name="levels_array">
         <item>Level 1</item>
         <item>Level 2</item>

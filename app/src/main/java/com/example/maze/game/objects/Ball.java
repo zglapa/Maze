@@ -1,18 +1,18 @@
 package com.example.maze.game.objects;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.preference.PreferenceManager;
 
 import androidx.core.content.ContextCompat;
 
 import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.Rectangle;
 import com.example.maze.R;
 import com.example.maze.game.Constants;
 
@@ -23,7 +23,6 @@ public class Ball implements GameObject {
     private final Paint paint;
     private final Rect realBody;
     private final Circle circle;
-    private final Rectangle rectangle;
     private final Bitmap bitmap;
 
     public Ball(Context context, int widthDivider, int heightDivider, Point ballStartPoint){
@@ -34,8 +33,18 @@ public class Ball implements GameObject {
         this.positionY = ballStartPoint.y * (double)Constants.SCREEN_HEIGHT/heightDivider;
         this.realBody = new Rect((int)(this.positionX-radius*1.15), (int)(this.positionY-radius*1.15), (int)(this.positionX+radius*1.15), (int)(this.positionY+radius*1.15));
         this.circle = new Circle((float)positionX, (float)positionY, (float)radius);
-        this.rectangle = new Rectangle((float)(positionX-radius), (float)(positionY-radius), (float)(2*radius), (float)(2*radius));
-        this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ball);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        switch(sharedPreferences.getInt("BALL_TYPE", 1)){
+            case 2:
+                this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ball2);
+                break;
+            case 3:
+                this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ball3);
+                break;
+            default:
+                this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ball);
+        }
+
     }
     public Ball(Context context, double positionX, double positionY){
         this.radius = Constants.BALL_RADIUS;
@@ -45,7 +54,6 @@ public class Ball implements GameObject {
         this.positionY = positionY;
         this.realBody = new Rect((int)(this.positionX-radius*1.15), (int)(this.positionY-radius*1.15), (int)(this.positionX+radius*1.15), (int)(this.positionY+radius*1.15));
         this.circle = new Circle((float)positionX, (float)positionY, (float)radius);
-        this.rectangle = new Rectangle((float)(this.positionX-radius), (float)(this.positionY-radius), (float)(2*radius), (float)(2*radius));
         this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ball);
 
     }
@@ -53,7 +61,6 @@ public class Ball implements GameObject {
     @Override
     public void draw(Canvas canvas){
         canvas.drawBitmap(bitmap, null, realBody, paint);
-//        canvas.drawCircle((float)positionX, (float)positionY, (float)radius, paint);
     }
 
     @Override
@@ -80,15 +87,10 @@ public class Ball implements GameObject {
         return positionY;
     }
 
-    public void setColor(){
-        paint.setColor(Color.GREEN);
-    }
-
     public double getRadius(){
         return this.radius;
     }
 
     public Circle getCircle(){return circle;}
 
-    public Rectangle getBoundingBox(){return rectangle;}
 }

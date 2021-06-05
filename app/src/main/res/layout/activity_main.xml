@@ -39,7 +39,7 @@
             android:background="@drawable/hedge_long"
             android:fontFamily="@font/bungee_inline"
             android:onClick="launchHallOfFameActivity"
-            android:text="HALL OF FAME"
+            android:text="@string/hall_of_fame"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
@@ -60,7 +60,7 @@
         android:id="@+id/imageView"
         android:layout_width="455dp"
         android:layout_height="158dp"
-        android:contentDescription="Maze title"
+        android:contentDescription="@string/maze_title"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

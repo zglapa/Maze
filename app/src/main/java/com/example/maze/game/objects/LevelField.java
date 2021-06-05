@@ -25,7 +25,7 @@ public class LevelField implements GameObject, Serializable {
     }
 
     public List<Wall> getWalls(){
-        List<Wall> retList = new ArrayList<Wall>(outerWalls);
+        List<Wall> retList = new ArrayList<>(outerWalls);
         retList.addAll(innerWalls);
         return retList;
     }
@@ -46,7 +46,6 @@ public class LevelField implements GameObject, Serializable {
         for(Wall wall: innerWalls){
             wall.draw(canvas);
         }
-        endPoint.draw(canvas);
     }
 
     @Override
