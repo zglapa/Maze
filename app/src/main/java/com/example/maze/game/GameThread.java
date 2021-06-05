@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.maze.R;
+import com.example.maze.game.database.AppDatabase;
 import com.example.maze.game.scene.SceneManager;
 
 import java.text.SimpleDateFormat;
@@ -23,6 +24,7 @@ public class GameThread extends Thread {
     private boolean isRunning;
     public static Canvas canvas;
     private final Activity activity;
+    public long levelTime;
 
     public GameThread(TextureView textureView, SceneManager sceneManager, Activity activity){
         super();
@@ -91,6 +93,8 @@ public class GameThread extends Thread {
                     String levelEnd = "Level " + sceneManager.getLevel() + " finished!";
                     levelEndTextView.setText(levelEnd);
                     long time = (System.currentTimeMillis() - sceneManager.getStartTime());
+                    levelTime = time;
+                    manageScore(sceneManager.getLevel(), time);
                     String hms = String.format(Locale.ENGLISH, "%02d:%02d:%03d", TimeUnit.MILLISECONDS.toMinutes(time),
                             TimeUnit.MILLISECONDS.toSeconds(time) % TimeUnit.MINUTES.toSeconds(1),
                             TimeUnit.MILLISECONDS.toMillis(time) % TimeUnit.SECONDS.toMillis(1));
@@ -102,8 +106,12 @@ public class GameThread extends Thread {
         }
 
     }
-
-
+    private void manageScore(int level, long time){
+        AppDatabase db = AppDatabase.getInstance(activity.getApplicationContext());
+        if(db.playerDao().getTopPlayer(level) == null || db.playerDao().getTopPlayer(level).time > time){
+            activity.findViewById(R.id.highscoreLayout).setVisibility(View.VISIBLE);
+        }
+    }
     public void setRunning(boolean isRunning){
         this.isRunning = isRunning;
     }

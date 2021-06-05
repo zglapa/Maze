@@ -16,6 +16,10 @@
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/hedge4.png"
     },
     {
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_spinner.png.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/spinner.png"
+    },
+    {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_hedge_simple_mid.png.flat",
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/hedge_simple_mid.png"
     },
@@ -30,6 +34,10 @@
     {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_hedge27.png.flat",
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/hedge27.png"
+    },
+    {
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_highscore.png.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/highscore.png"
     },
     {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_hedge14.png.flat",
@@ -104,6 +112,10 @@
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/level.png"
     },
     {
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/layout_custom_spinner.xml.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/layout/custom_spinner.xml"
+    },
+    {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
@@ -160,6 +172,10 @@
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/hedge54.png"
     },
     {
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_highscore_whole.png.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/highscore_whole.png"
+    },
+    {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/layout_activity_level_choice.xml.flat",
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/layout/activity_level_choice.xml"
     },
@@ -188,6 +204,10 @@
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/hedge18.png"
     },
     {
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/layout_row.xml.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/layout/row.xml"
+    },
+    {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
     },
@@ -202,5 +222,13 @@
     {
         "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_eater1.png.flat",
         "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/eater1.png"
+    },
+    {
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_left.png.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/left.png"
+    },
+    {
+        "merged": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/build/intermediates/res/merged/debug/drawable_right.png.flat",
+        "source": "/home/zofia/tcs/sem4/ProgramowanieMobilne/Maze/app/src/main/res/drawable/right.png"
     }
 ]

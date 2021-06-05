@@ -9,9 +9,9 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="862dp"
+        android:layout_width="306dp"
         android:layout_height="65dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="1dp"
         android:fontFamily="@font/bungee_inline"
         android:text="HIGHSCORE"
@@ -19,17 +19,61 @@
         android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:layout_width="862dp"
-        android:layout_height="217dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="168dp"
-        android:foregroundGravity="center"
-        android:textAlignment="center"
+        android:id="@+id/recyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="208dp"
+        android:layout_marginTop="184dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        style="@style/Widget.AppCompat.Spinner.DropDown.ActionBar"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="94dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="399dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="138dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/bungee_inline"
+            android:text="      PLAYER"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/bungee_inline"
+            android:text="TIME"
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,12 +12,17 @@ import android.util.DisplayMetrics;
 import android.view.TextureView;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.maze.game.Constants;
 import com.example.maze.game.GameThread;
+import com.example.maze.game.database.AppDatabase;
+import com.example.maze.game.database.Player;
+import com.example.maze.game.database.PlayerAdapter;
 import com.example.maze.game.scene.SceneManager;
 
 public class GameActivity extends Activity implements TextureView.SurfaceTextureListener {
@@ -129,9 +134,31 @@ public class GameActivity extends Activity implements TextureView.SurfaceTexture
     private void unlockNewLevel(int level){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("TOP_LEVEL");
-        editor.putInt("TOP_LEVEL", level);
+        int topLevel = sharedPreferences.getInt("TOP_LEVEL", 0);
+        if(level > topLevel){
+            editor.remove("TOP_LEVEL");
+            editor.putInt("TOP_LEVEL", level);
+        }
         editor.apply();
+    }
+    public void highscoreButtonClicked(View view){
+        findViewById(R.id.playerInputLayout).setVisibility(View.VISIBLE);
+    }
+
+    public void saveButtonClicked(View view){
+        EditText playerNameEditText = findViewById(R.id.playerNameEditText);
+        String playerName = playerNameEditText.getText().toString();
+        if(playerName.length() < 1) return;
+        long time = thread.levelTime;
+        AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+        Player player = new Player();
+        player.name = playerName;
+        player.time = time;
+        player.level = level;
+        db.playerDao().insertPlayers(player);
+        findViewById(R.id.playerInputLayout).setVisibility(View.INVISIBLE);
+        findViewById(R.id.addHighscoreButton).setEnabled(false);
+
     }
 
     public void menuButtonClicked(View view){

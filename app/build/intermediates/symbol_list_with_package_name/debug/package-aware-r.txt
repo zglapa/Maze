@@ -50,6 +50,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array levels_array
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1676,6 +1677,8 @@ drawable hedge_simple_long
 drawable hedge_simple_mid
 drawable hedge_square
 drawable hedge_vertical
+drawable highscore
+drawable highscore_whole
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
@@ -1686,6 +1689,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable icon
 drawable icon_round
+drawable left
 drawable level
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
@@ -1719,6 +1723,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable right
+drawable spinner
 drawable test_custom_background
 drawable title_main
 drawable tooltip_frame_dark
@@ -1792,6 +1798,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addHighscoreButton
 id alertTitle
 id aligned
 id all
@@ -1812,6 +1819,7 @@ id beginning
 id blocking
 id bottom
 id bounce
+id button4
 id buttonPanel
 id cache_measures
 id cancel_button
@@ -1835,6 +1843,7 @@ id clip_vertical
 id clockwise
 id collapseActionView
 id confirm_button
+id constraintLayout
 id container
 id content
 id contentPanel
@@ -1907,6 +1916,7 @@ id guideline
 id hallOfFame
 id header_title
 id hideable
+id highscoreLayout
 id home
 id homeAsUp
 id honorRequest
@@ -2007,6 +2017,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id nameTextView
 id navigation_header_container
 id never
 id nextLevelButton
@@ -2032,6 +2043,8 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id playerInputLayout
+id playerNameEditText
 id position
 id postLayout
 id progress_circular
@@ -2039,7 +2052,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
-id recycler
+id recyclerView
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2083,6 +2096,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spinner
 id spline
 id split_action_bar
 id spread
@@ -2125,6 +2139,9 @@ id textStart
 id textTop
 id textView
 id textView2
+id textView3
+id textView5
+id textView6
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2137,6 +2154,7 @@ id textinput_suffix_text
 id time
 id timeField
 id timeText
+id timeTextView
 id title
 id titleDividerNoCustom
 id title_template
@@ -2230,6 +2248,7 @@ layout activity_level_choice
 layout activity_main
 layout activity_settings
 layout custom_dialog
+layout custom_spinner
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -2293,6 +2312,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout row
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
