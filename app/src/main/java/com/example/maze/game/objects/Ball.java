@@ -25,12 +25,12 @@ public class Ball implements GameObject {
     private final Circle circle;
     private final Bitmap bitmap;
 
-    public Ball(Context context, int widthDivider, int heightDivider, Point ballStartPoint){
+    public Ball(Context context,  Point ballStartPoint){
         this.radius = Constants.BALL_RADIUS;
         paint = new Paint();
         paint.setColor(ContextCompat.getColor(context, R.color.red));
-        this.positionX = ballStartPoint.x * (double)Constants.SCREEN_WIDTH/widthDivider;
-        this.positionY = ballStartPoint.y * (double)Constants.SCREEN_HEIGHT/heightDivider;
+        this.positionX = ballStartPoint.x;
+        this.positionY = ballStartPoint.y;
         this.realBody = new Rect((int)(this.positionX-radius*1.15), (int)(this.positionY-radius*1.15), (int)(this.positionX+radius*1.15), (int)(this.positionY+radius*1.15));
         this.circle = new Circle((float)positionX, (float)positionY, (float)radius);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -61,6 +61,7 @@ public class Ball implements GameObject {
     @Override
     public void draw(Canvas canvas){
         canvas.drawBitmap(bitmap, null, realBody, paint);
+//        System.out.println("ball drawn");
     }
 
     @Override

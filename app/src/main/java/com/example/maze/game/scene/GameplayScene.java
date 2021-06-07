@@ -21,7 +21,7 @@ public class GameplayScene implements Scene {
     private final Point ballPoint;
     private final LevelField levelField;
     private final Orientation orientation;
-    private long frameTime;
+    private long frameTime = -1;
     private final Point ballStartPosition;
     private long startTime = 0;
     private boolean gameEnd;
@@ -33,16 +33,15 @@ public class GameplayScene implements Scene {
         this.level = level;
         levelField = createLevelField(context, level);
 
-        ballPoint = new Point(levelField.getBallStartPoint());
-        ball = new Ball(context, 54, 27, ballPoint);
-
-        int ballStartX = (int) (ballPoint.x * Constants.SCREEN_WIDTH/54f);
-        int ballStartY = (int) (ballPoint.y * Constants.SCREEN_HEIGHT/27f);
+        int ballStartX = (int) (levelField.getBallStartPoint().x * Constants.SCREEN_WIDTH/54f);
+        int ballStartY = (int) (levelField.getBallStartPoint().y * Constants.SCREEN_HEIGHT/27f);
         ballStartPosition = new Point(ballStartX, ballStartY);
+        ball = new Ball(context, ballStartPosition);
+        ballPoint = new Point(ballStartPosition);
 
         orientation = new Orientation(context);
         orientation.register();
-        frameTime = System.currentTimeMillis();
+        System.out.println(ball.getPositionX() + " " + ball.getPositionY());
 
     }
 
@@ -77,18 +76,30 @@ public class GameplayScene implements Scene {
     public void updateBallPosition(){
         int x = ballPoint.x, y = ballPoint.y;
 
+        if(frameTime < 0){
+            frameTime = System.currentTimeMillis();
+        }
         long elapsedTime = System.currentTimeMillis() - frameTime;
         frameTime = System.currentTimeMillis();
         if(orientation.getOrientation() != null  && orientation.getStartOrientation() != null){
             float xx = orientation.getOrientation()[1] - orientation.getStartOrientation()[1];
             float yy = orientation.getOrientation()[2] - orientation.getStartOrientation()[2];
-
+            System.out.println("----------");
+            System.out.println(xx + " " + yy);
 
             float xSpeed = 5 * xx * Constants.SCREEN_WIDTH/2000f;
             float ySpeed = 5 * yy * Constants.SCREEN_HEIGHT/2000f;
-
+            System.out.println("----------");
+            System.out.println(xSpeed + " " + ySpeed);
+            System.out.println("----------");
+            System.out.println(x + " " + y);
             x = (int) (ballPoint.x - xSpeed*elapsedTime);
             y = (int) (ballPoint.y - ySpeed*elapsedTime);
+            System.out.println("----------");
+            System.out.println(x + " " + y);
+            System.out.println("----------");
+            System.out.println(elapsedTime);
+
         }
 
         if(x < 0) x = 0;
@@ -98,9 +109,14 @@ public class GameplayScene implements Scene {
 
         Ball prevBall = new Ball(context, ball.getPositionX(), ball.getPositionY());
 
+        System.out.println(ball.getPositionX() + " " + ball.getPositionY());
+
         ballPoint.set(x,y);
 
         ball.update(ballPoint);
+        System.out.println(ball.getPositionX() + " " + ball.getPositionY());
+        System.out.println("----------");
+
 
         for(Wall wall : levelField.getWalls()){
             if(wall.intersects(ball, prevBall)){
@@ -165,6 +181,18 @@ public class GameplayScene implements Scene {
                 break;
             case 8:
                 levelFieldTemp = LevelFactory.produceLevel8(context);
+                break;
+            case 9:
+                levelFieldTemp = LevelFactory.produceLevel9(context);
+                break;
+            case 10:
+                levelFieldTemp = LevelFactory.produceLevel10(context);
+                break;
+            case 11:
+                levelFieldTemp = LevelFactory.produceLevel11(context);
+                break;
+            case 12:
+                levelFieldTemp = LevelFactory.produceLevel12(context);
                 break;
             default:
                 levelFieldTemp = LevelFactory.produceLevel1(context);

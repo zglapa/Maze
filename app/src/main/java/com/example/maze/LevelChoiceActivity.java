@@ -33,11 +33,11 @@ public class LevelChoiceActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         int topLevel = sharedPreferences.getInt("TOP_LEVEL", 1);
-
         TableLayout tableLayout = findViewById(R.id.tableOfLevels);
         TableRow row1 = (TableRow) tableLayout.getChildAt(0);
         TableRow row2 = (TableRow) tableLayout.getChildAt(1);
         for(int i = 1; i <= topLevel; ++i){
+            if(i > 12) return;
             if(i <= 6){
                 row1.getChildAt(i-1).setEnabled(true);
                 row1.getChildAt(i-1).setBackgroundTintMode(null);

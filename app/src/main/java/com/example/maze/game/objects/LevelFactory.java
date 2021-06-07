@@ -234,4 +234,124 @@ public class LevelFactory {
 
         return new LevelField(outerWalls, innerWalls, eaters, ballStartPoint, endPoint);
     }
+    public static LevelField produceLevel9(Context context){
+        List<Wall> outerWalls = produceOuterWalls(context);
+
+        List<Wall> innerWalls = new ArrayList<>();
+        innerWalls.add(new Wall(context, 54, 27, 10, 6, 12, 18));
+        innerWalls.add(new Wall(context,54, 27, 12, 11, 20, 13));
+        innerWalls.add(new Wall(context, 54, 27, 20, 6, 22, 18));
+        innerWalls.add(new Wall(context, 54, 27, 22, 6, 32, 8 ));
+        innerWalls.add(new Wall(context, 54, 27, 32, 6, 34, 18));
+        innerWalls.add(new Wall(context, 54, 27, 34, 11, 42, 13));
+        innerWalls.add(new Wall(context, 54, 27, 42, 6, 44, 18));
+
+
+        List<Eater> eaters = new ArrayList<>();
+        eaters.add(new Eater(context, 54, 27, 25, 21));
+        eaters.add(new Eater(context, 54, 27, 29, 21));
+        eaters.add(new Eater(context, 54, 27, 11, 23));
+        eaters.add(new Eater(context, 54, 27, 43, 23));
+        eaters.add(new Eater(context, 54, 27, 7, 12));
+        eaters.add(new Eater(context, 54, 27, 47, 12));
+
+        EndPoint endPoint = new EndPoint(context, 54, 27, 27, 4);
+
+        Point ballStartPoint = new Point(27, 12);
+
+
+        return new LevelField(outerWalls, innerWalls, eaters, ballStartPoint, endPoint);
+    }
+    public static LevelField produceLevel10(Context context){
+        List<Wall> outerWalls = produceOuterWalls(context);
+
+        List<Wall> innerWalls = new ArrayList<>();
+        innerWalls.add(new Wall(context, 54, 27, 6, 15, 8, 25));
+        innerWalls.add(new Wall(context,54, 27, 6, 6, 8, 12));
+        innerWalls.add(new Wall(context, 54, 27, 12, 13, 14, 19));
+        innerWalls.add(new Wall(context, 54, 27, 18, 8, 20, 13 ));
+        innerWalls.add(new Wall(context, 54, 27, 24, 13, 26, 19));
+        innerWalls.add(new Wall(context, 54, 27, 30, 8, 32, 13));
+        innerWalls.add(new Wall(context, 54, 27, 36, 13, 38, 19));
+        innerWalls.add(new Wall(context, 54, 27, 36, 11, 42, 13));
+        innerWalls.add(new Wall(context, 54, 27, 46, 15, 48, 21));
+        innerWalls.add(new Wall(context, 54, 27, 46, 2, 48, 12));
+        innerWalls.add(new Wall(context, 54, 27, 8, 6, 46, 8));
+        innerWalls.add(new Wall(context,54, 27, 8, 19, 46, 21));
+
+
+        List<Eater> eaters = new ArrayList<>();
+        eaters.add(new Eater(context, 54, 27, 4, 16));
+        eaters.add(new Eater(context, 54, 27, 19, 15));
+        eaters.add(new Eater(context, 54, 27, 31, 17));
+        eaters.add(new Eater(context, 54, 27, 44, 15));
+
+        EndPoint endPoint = new EndPoint(context, 54, 27, 11, 23);
+
+        Point ballStartPoint = new Point(44, 4);
+
+
+        return new LevelField(outerWalls, innerWalls, eaters, ballStartPoint, endPoint);
+    }
+    public static LevelField produceLevel11(Context context){
+        List<Wall> outerWalls = produceOuterWalls(context);
+
+        List<Wall> innerWalls = new ArrayList<>();
+        innerWalls.add(new Wall(context, 54, 27, 2, 17, 22, 19));
+        innerWalls.add(new Wall(context,54, 27, 28, 6, 30, 25));
+        innerWalls.add(new Wall(context, 54, 27, 34, 6, 36, 21));
+        innerWalls.add(new Wall(context, 54, 27, 40, 6, 42, 21));
+        innerWalls.add(new Wall(context, 54, 27, 46, 6, 48, 21));
+
+
+        List<Eater> eaters = new ArrayList<>();
+        eaters.add(new Eater(context, 54, 27, 25, 7));
+        eaters.add(new Eater(context, 54, 27, 25, 13));
+        eaters.add(new Eater(context, 54, 27, 32, 23));
+        eaters.add(new Eater(context, 54, 27, 38, 23));
+        eaters.add(new Eater(context, 54, 27, 50, 23));
+
+        EndPoint endPoint = new EndPoint(context, 54, 27, 44, 23);
+
+        Point ballStartPoint = new Point(5, 22);
+
+
+        return new LevelField(outerWalls, innerWalls, eaters, ballStartPoint, endPoint);
+    }
+    public static LevelField produceLevel12(Context context){
+        List<Wall> outerWalls = produceOuterWalls(context);
+
+        List<Wall> innerWalls = new ArrayList<>();
+
+        List<Eater> eaters = new ArrayList<>();
+        eaters.add(new Eater(context, 54, 27, 11, 3));
+        eaters.add(new Eater(context, 54, 27, 11, 24));
+        eaters.add(new Eater(context, 54, 27, 15, 6));
+        eaters.add(new Eater(context, 54, 27, 15, 11));
+        eaters.add(new Eater(context, 54, 27, 15, 15));
+        eaters.add(new Eater(context, 54, 27, 15, 20));
+        eaters.add(new Eater(context, 54, 27, 20, 8));
+        eaters.add(new Eater(context, 54, 27, 20, 13));
+        eaters.add(new Eater(context, 54, 27, 20, 18));
+        eaters.add(new Eater(context, 54, 27, 23, 4));
+        eaters.add(new Eater(context, 54, 27, 23, 22));
+        eaters.add(new Eater(context, 54, 27, 25, 9));
+        eaters.add(new Eater(context, 54, 27, 25, 17));
+        eaters.add(new Eater(context, 54, 27, 28, 5));
+        eaters.add(new Eater(context, 54, 27, 28, 21));
+        eaters.add(new Eater(context, 54, 27, 31, 9));
+        eaters.add(new Eater(context, 54, 27, 31, 17));
+        eaters.add(new Eater(context, 54, 27, 33, 4));
+        eaters.add(new Eater(context, 54, 27, 33, 22));
+        eaters.add(new Eater(context, 54, 27, 36, 8));
+        eaters.add(new Eater(context, 54, 27, 36, 13));
+        eaters.add(new Eater(context, 54, 27, 36, 18));
+
+        EndPoint endPoint = new EndPoint(context, 54, 27, 10, 13);
+
+        Point ballStartPoint = new Point(28, 13);
+
+
+        return new LevelField(outerWalls, innerWalls, eaters, ballStartPoint, endPoint);
+    }
 }

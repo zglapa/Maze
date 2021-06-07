@@ -131,7 +131,7 @@ public class GameActivity extends Activity implements TextureView.SurfaceTexture
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         int topLevel = sharedPreferences.getInt("TOP_LEVEL", 0);
-        if(level > topLevel){
+        if(level > topLevel && level <= 12){
             editor.remove("TOP_LEVEL");
             editor.putInt("TOP_LEVEL", level);
         }

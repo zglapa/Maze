@@ -89,6 +89,9 @@ public class GameThread extends Thread {
                     TextView timeTextView = activity.findViewById(R.id.timeField);
                     String levelEnd = "Level " + gameplayScene.getLevel() + " finished!";
                     levelEndTextView.setText(levelEnd);
+                    if(gameplayScene.getLevel() == 12){
+                        activity.findViewById(R.id.nextLevelButton).setVisibility(View.INVISIBLE);
+                    }
                     long time = (System.currentTimeMillis() - gameplayScene.getStartTime());
                     levelTime = time;
                     manageScore(gameplayScene.getLevel(), time);
