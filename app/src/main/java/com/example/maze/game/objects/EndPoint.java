@@ -31,13 +31,12 @@ public class EndPoint implements GameObject {
         this.positionX =  x * (double)Constants.SCREEN_WIDTH/widthDivider;
         this.positionY = y * (double)Constants.SCREEN_HEIGHT/heightDivider;
         this.realBody = new Rect((int)(this.positionX-radius), (int)(this.positionY-radius), (int)(this.positionX+radius), (int)(this.positionY+radius));
-        this.circle = new Circle((float)this.positionX, (float)this.positionY, (float)radius*0.8f);
+        this.circle = new Circle((float)this.positionX, (float)this.positionY, (float)radius*0.2f);
         this.bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.basket);
 
     }
     @Override
     public void draw(Canvas canvas){
-//        canvas.drawCircle((float)positionX, (float)positionY, (float)radius, paint);
         canvas.drawBitmap(bitmap, null, realBody, paint);
     }
 
