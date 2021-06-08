@@ -21,8 +21,8 @@ com/example/maze/game/objects/GameObject.java
  com.example.maze.game.objects.GameObject
 com/example/maze/game/animation/Animation.java
  com.example.maze.game.animation.Animation
-com/example/maze/game/animation/AnimationManager.java
- com.example.maze.game.animation.AnimationManager
+com/example/maze/MainActivity.java
+ com.example.maze.MainActivity
 com/example/maze/SettingsActivity.java
  com.example.maze.SettingsActivity
 com/example/maze/game/objects/Wall.java
@@ -44,8 +44,8 @@ com/example/maze/game/objects/Eater.java
  com.example.maze.game.objects.Eater
 com/example/maze/LevelChoiceActivity.java
  com.example.maze.LevelChoiceActivity
-com/example/maze/MainActivity.java
- com.example.maze.MainActivity
+com/example/maze/game/animation/AnimationManager.java
+ com.example.maze.game.animation.AnimationManager
 com/example/maze/GameActivity.java
  com.example.maze.GameActivity
  com.example.maze.GameActivity$1

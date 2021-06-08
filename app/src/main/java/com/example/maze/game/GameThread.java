@@ -83,25 +83,8 @@ public class GameThread extends Thread {
                 System.out.println(averageFPS);
             }
             if(gameplayScene.isGameEnd()){
-                activity.runOnUiThread(()->{
-                    activity.findViewById(R.id.endGame).setVisibility(View.VISIBLE);
-                    TextView levelEndTextView = activity.findViewById(R.id.levelEnded);
-                    TextView timeTextView = activity.findViewById(R.id.timeField);
-                    String levelEnd = "Level " + gameplayScene.getLevel() + " finished!";
-                    levelEndTextView.setText(levelEnd);
-                    if(gameplayScene.getLevel() == 12){
-                        activity.findViewById(R.id.nextLevelButton).setVisibility(View.INVISIBLE);
-                    }
-                    long time = (System.currentTimeMillis() - gameplayScene.getStartTime());
-                    levelTime = time;
-                    manageScore(gameplayScene.getLevel(), time);
-                    String hms = String.format(Locale.ENGLISH, "%02d:%02d:%03d", TimeUnit.MILLISECONDS.toMinutes(time),
-                            TimeUnit.MILLISECONDS.toSeconds(time) % TimeUnit.MINUTES.toSeconds(1),
-                            TimeUnit.MILLISECONDS.toMillis(time) % TimeUnit.SECONDS.toMillis(1));
-                    timeTextView.setText(hms);
-                });
+                endGame();
                 break;
-
             }
         }
 
@@ -115,4 +98,24 @@ public class GameThread extends Thread {
     public void setRunning(boolean isRunning){
         this.isRunning = isRunning;
     }
+    public void endGame(){
+        activity.runOnUiThread(()->{
+            activity.findViewById(R.id.endGame).setVisibility(View.VISIBLE);
+            TextView levelEndTextView = activity.findViewById(R.id.levelEnded);
+            TextView timeTextView = activity.findViewById(R.id.timeField);
+            String levelEnd = "Level " + gameplayScene.getLevel() + " finished!";
+            levelEndTextView.setText(levelEnd);
+            if(gameplayScene.getLevel() == 12){
+                activity.findViewById(R.id.nextLevelButton).setVisibility(View.INVISIBLE);
+            }
+            long time = (System.currentTimeMillis() - gameplayScene.getStartTime());
+            levelTime = time;
+            manageScore(gameplayScene.getLevel(), time);
+            String hms = String.format(Locale.ENGLISH, "%02d:%02d:%03d", TimeUnit.MILLISECONDS.toMinutes(time),
+                    TimeUnit.MILLISECONDS.toSeconds(time) % TimeUnit.MINUTES.toSeconds(1),
+                    TimeUnit.MILLISECONDS.toMillis(time) % TimeUnit.SECONDS.toMillis(1));
+            timeTextView.setText(hms);
+        });
+    }
+
 }
